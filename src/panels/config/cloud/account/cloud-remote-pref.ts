@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import { mdiContentCopy } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../../common/util/copy-clipboard";
 import "../../../../components/ha-alert";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-switch";
 // eslint-disable-next-line
@@ -103,18 +103,18 @@ export class CloudRemotePref extends LitElement {
             target="_blank"
             rel="noreferrer"
           >
-            <mwc-button
+            <ha-button
               >${this.hass.localize(
                 "ui.panel.config.cloud.account.remote.link_learn_how_it_works"
-              )}</mwc-button
+              )}</ha-button
             >
           </a>
           <div class="spacer"></div>
-          <mwc-button @click=${this._openCertInfo}>
+          <ha-button @click=${this._openCertInfo}>
             ${this.hass.localize(
               "ui.panel.config.cloud.account.remote.certificate_info"
             )}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-card>
     `;

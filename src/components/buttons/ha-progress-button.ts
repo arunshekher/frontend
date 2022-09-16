@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { mdiAlertOctagram, mdiCheckBold } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../ha-button";
 import "../ha-circular-progress";
 import "../ha-svg-icon";
 
@@ -18,14 +18,14 @@ export class HaProgressButton extends LitElement {
   public render(): TemplateResult {
     const overlay = this._result || this.progress;
     return html`
-      <mwc-button
+      <ha-button
         ?raised=${this.raised}
         .disabled=${this.disabled || this.progress}
         @click=${this._buttonTapped}
         class=${this._result || ""}
       >
         <slot></slot>
-      </mwc-button>
+      </ha-button>
       ${!overlay
         ? ""
         : html`
@@ -76,11 +76,11 @@ export class HaProgressButton extends LitElement {
         position: relative;
       }
 
-      mwc-button {
+      ha-button {
         transition: all 1s;
       }
 
-      mwc-button.success {
+      ha-button.success {
         --mdc-theme-primary: white;
         background-color: var(--success-color);
         transition: none;
@@ -88,12 +88,12 @@ export class HaProgressButton extends LitElement {
         pointer-events: none;
       }
 
-      mwc-button[raised].success {
+      ha-button[raised].success {
         --mdc-theme-primary: var(--success-color);
         --mdc-theme-on-primary: white;
       }
 
-      mwc-button.error {
+      ha-button.error {
         --mdc-theme-primary: white;
         background-color: var(--error-color);
         transition: none;
@@ -101,7 +101,7 @@ export class HaProgressButton extends LitElement {
         pointer-events: none;
       }
 
-      mwc-button[raised].error {
+      ha-button[raised].error {
         --mdc-theme-primary: var(--error-color);
         --mdc-theme-on-primary: white;
       }
@@ -118,8 +118,8 @@ export class HaProgressButton extends LitElement {
         color: white;
       }
 
-      mwc-button.success slot,
-      mwc-button.error slot {
+      ha-button.success slot,
+      ha-button.error slot {
         visibility: hidden;
       }
     `;

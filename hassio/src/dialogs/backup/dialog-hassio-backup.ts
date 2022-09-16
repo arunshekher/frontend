@@ -7,6 +7,7 @@ import { fireEvent } from "../../../../src/common/dom/fire_event";
 import { slugify } from "../../../../src/common/string/slugify";
 import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/ha-alert";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-button-menu";
 import "../../../../src/components/ha-header-bar";
 import "../../../../src/components/ha-icon-button";
@@ -99,13 +100,13 @@ class HassioBackupDialog
           ? html`<ha-alert alert-type="error">${this._error}</ha-alert>`
           : ""}
 
-        <mwc-button
+        <ha-button
           .disabled=${this._restoringBackup}
           slot="secondaryAction"
           @click=${this._restoreClicked}
         >
           Restore
-        </mwc-button>
+        </ha-button>
 
         ${!this._dialogParams.onboarding
           ? html`<ha-button-menu

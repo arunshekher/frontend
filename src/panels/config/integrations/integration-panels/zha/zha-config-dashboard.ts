@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { mdiFolderMultipleOutline, mdiLan, mdiNetwork, mdiPlus } from "@mdi/js";
 import {
   css,
@@ -14,6 +13,7 @@ import {
   getConfigEntries,
 } from "../../../../../data/config_entries";
 import { computeRTL } from "../../../../../common/util/compute_rtl";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-fab";
 import { fileDownload } from "../../../../../util/file_download";
@@ -101,19 +101,19 @@ class ZHAConfigDashboard extends LitElement {
                 <a
                   href=${`/config/devices/dashboard?historyBack=1&config_entry=${this.configEntryId}`}
                 >
-                  <mwc-button
+                  <ha-button
                     >${this.hass.localize(
                       "ui.panel.config.devices.caption"
-                    )}</mwc-button
+                    )}</ha-button
                   >
                 </a>
                 <a
                   href=${`/config/entities/dashboard?historyBack=1&config_entry=${this.configEntryId}`}
                 >
-                  <mwc-button
+                  <ha-button
                     >${this.hass.localize(
                       "ui.panel.config.entities.caption"
-                    )}</mwc-button
+                    )}</ha-button
                   >
                 </a>
               </div>`
@@ -163,11 +163,11 @@ class ZHAConfigDashboard extends LitElement {
                 "ui.panel.config.zha.configuration_page.download_backup"
               )}
             </ha-progress-button>
-            <mwc-button class="warning" @click=${this._openOptionFlow}>
+            <ha-button class="warning" @click=${this._openOptionFlow}>
               ${this.hass.localize(
                 "ui.panel.config.zha.configuration_page.migrate_radio"
               )}
-            </mwc-button>
+            </ha-button>
           </div>
         </ha-card>
         ${this._configuration
@@ -195,11 +195,11 @@ class ZHAConfigDashboard extends LitElement {
           : ""}
         <ha-card>
           <div class="card-actions">
-            <mwc-button @click=${this._updateConfiguration}>
+            <ha-button @click=${this._updateConfiguration}>
               ${this.hass.localize(
                 "ui.panel.config.zha.configuration_page.update_button"
               )}
-            </mwc-button>
+            </ha-button>
           </div>
         </ha-card>
 

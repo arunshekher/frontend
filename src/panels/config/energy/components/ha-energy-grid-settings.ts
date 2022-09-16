@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   mdiDelete,
   mdiHomeExportOutline,
@@ -9,6 +8,7 @@ import {
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-icon-button";
 import {
@@ -158,10 +158,10 @@ export class EnergyGridSettings extends LitElement {
           })}
           <div class="row border-bottom">
             <ha-svg-icon .path=${mdiHomeImportOutline}></ha-svg-icon>
-            <mwc-button @click=${this._addFromSource}
+            <ha-button @click=${this._addFromSource}
               >${this.hass.localize(
                 "ui.panel.config.energy.grid.add_consumption"
-              )}</mwc-button
+              )}</ha-button
             >
           </div>
 
@@ -205,10 +205,10 @@ export class EnergyGridSettings extends LitElement {
           })}
           <div class="row border-bottom">
             <ha-svg-icon .path=${mdiHomeExportOutline}></ha-svg-icon>
-            <mwc-button @click=${this._addToSource}
+            <ha-button @click=${this._addToSource}
               >${this.hass.localize(
                 "ui.panel.config.energy.grid.add_return"
-              )}</mwc-button
+              )}</ha-button
             >
           </div>
 
@@ -251,11 +251,11 @@ export class EnergyGridSettings extends LitElement {
                       darkOptimized: this.hass.themes?.darkMode,
                     })}
                   />
-                  <mwc-button @click=${this._addCO2Sensor}>
+                  <ha-button @click=${this._addCO2Sensor}>
                     ${this.hass.localize(
                       "ui.panel.config.energy.grid.add_co2_signal"
                     )}
-                  </mwc-button>
+                  </ha-button>
                 </div>
               `}
         </div>

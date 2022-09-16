@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import { HassEvent } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { repeat } from "lit/directives/repeat";
 import { formatTime } from "../../../common/datetime/format_time";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-textfield";
 import "../../../components/ha-yaml-editor";
@@ -52,7 +52,7 @@ class EventSubscribeCard extends LitElement {
             .value=${this._eventType}
             @input=${this._valueChanged}
           ></ha-textfield>
-          <mwc-button
+          <ha-button
             .disabled=${this._eventType === ""}
             @click=${this._handleSubmit}
             type="submit"
@@ -64,7 +64,7 @@ class EventSubscribeCard extends LitElement {
               : this.hass!.localize(
                   "ui.panel.developer-tools.tabs.events.start_listening"
                 )}
-          </mwc-button>
+          </ha-button>
         </form>
         <div class="events">
           ${repeat(
@@ -129,7 +129,7 @@ class EventSubscribeCard extends LitElement {
       ha-textfield {
         width: 300px;
       }
-      mwc-button {
+      ha-button {
         vertical-align: middle;
       }
       .events {

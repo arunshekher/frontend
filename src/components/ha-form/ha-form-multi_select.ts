@@ -9,6 +9,7 @@ import {
 } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../ha-button";
 import "../ha-button-menu";
 import "../ha-check-list-item";
 import type { HaCheckListItem } from "../ha-check-list-item";

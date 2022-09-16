@@ -1,21 +1,21 @@
-import "@material/mwc-button";
 import {
   CSSResultGroup,
   html,
   LitElement,
-  TemplateResult,
   PropertyValues,
+  TemplateResult,
 } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../../components/ha-button";
 import { DataEntryFlowStepAbort } from "../../data/data_entry_flow";
-import { HomeAssistant } from "../../types";
-import { showAddApplicationCredentialDialog } from "../../panels/config/application_credentials/show-dialog-add-application-credential";
-import { configFlowContentStyles } from "./styles";
-import { showConfirmationDialog } from "../generic/show-dialog-box";
 import { domainToName } from "../../data/integration";
-import { DataEntryFlowDialogParams } from "./show-dialog-data-entry-flow";
+import { showAddApplicationCredentialDialog } from "../../panels/config/application_credentials/show-dialog-add-application-credential";
+import { HomeAssistant } from "../../types";
+import { showConfirmationDialog } from "../generic/show-dialog-box";
 import { showConfigFlowDialog } from "./show-dialog-config-flow";
+import { DataEntryFlowDialogParams } from "./show-dialog-data-entry-flow";
+import { configFlowContentStyles } from "./styles";
 
 @customElement("step-flow-abort")
 class StepFlowAbort extends LitElement {
@@ -44,10 +44,10 @@ class StepFlowAbort extends LitElement {
         ${this.params.flowConfig.renderAbortDescription(this.hass, this.step)}
       </div>
       <div class="buttons">
-        <mwc-button @click=${this._flowDone}
+        <ha-button @click=${this._flowDone}
           >${this.hass.localize(
             "ui.panel.config.integrations.config_flow.close"
-          )}</mwc-button
+          )}</ha-button
         >
       </div>
     `;

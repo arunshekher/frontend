@@ -1,6 +1,6 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../components/ha-button";
 import "../../components/ha-circular-progress";
 import "../../components/ha-dialog";
 import "../../components/ha-form/ha-form";
@@ -123,20 +123,20 @@ class HaMfaModuleSetupFlow extends LitElement {
                 : ""}`}
         </div>
         ${["abort", "create_entry"].includes(this._step?.type || "")
-          ? html`<mwc-button slot="primaryAction" @click=${this.closeDialog}
+          ? html`<ha-button slot="primaryAction" @click=${this.closeDialog}
               >${this.hass.localize(
                 "ui.panel.profile.mfa_setup.close"
-              )}</mwc-button
+              )}</ha-button
             >`
           : ""}
         ${this._step?.type === "form"
-          ? html`<mwc-button
+          ? html`<ha-button
               slot="primaryAction"
               .disabled=${this._loading}
               @click=${this._submitStep}
               >${this.hass.localize(
                 "ui.panel.profile.mfa_setup.submit"
-              )}</mwc-button
+              )}</ha-button
             >`
           : ""}
       </ha-dialog>

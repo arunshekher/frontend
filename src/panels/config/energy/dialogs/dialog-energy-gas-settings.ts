@@ -14,9 +14,9 @@ import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import { EnergySettingsGasDialogParams } from "./show-dialogs-energy";
-import "@material/mwc-button/mwc-button";
 import "../../../../components/entity/ha-statistic-picker";
 import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/ha-button";
 import "../../../../components/ha-radio";
 import "../../../../components/ha-formfield";
 import "../../../../components/ha-textfield";
@@ -204,16 +204,16 @@ export class DialogEnergyGasSettings
             </ha-textfield>`
           : ""}
 
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._save}
           .disabled=${!this._source.stat_energy_from}
           slot="primaryAction"
         >
           ${this.hass.localize("ui.common.save")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

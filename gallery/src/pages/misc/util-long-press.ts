@@ -1,6 +1,6 @@
-import "@material/mwc-button";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement } from "lit/decorators";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-card";
 import { ActionHandlerEvent } from "../../../../src/data/lovelace";
 import { actionHandler } from "../../../../src/panels/lovelace/common/directives/action-handler-directive";
@@ -12,12 +12,12 @@ export class DemoUtilLongPress extends LitElement {
       ${[1, 2, 3].map(
         () => html`
           <ha-card>
-            <mwc-button
+            <ha-button
               @action=${this._handleAction}
               .actionHandler=${actionHandler({})}
             >
               (long) press me!
-            </mwc-button>
+            </ha-button>
 
             <textarea></textarea>
 

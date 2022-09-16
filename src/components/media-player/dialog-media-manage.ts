@@ -18,6 +18,7 @@ import {
 import { showConfirmationDialog } from "../../dialogs/generic/show-dialog-box";
 import { haStyleDialog } from "../../resources/styles";
 import type { HomeAssistant } from "../../types";
+import "../ha-button";
 import "../ha-circular-progress";
 import "../ha-dialog";
 import "../ha-header-bar";
@@ -111,7 +112,7 @@ class DialogMediaManage extends LitElement {
                     `}
               `
             : html`
-                <mwc-button
+                <ha-button
                   class="danger"
                   slot="title"
                   .disabled=${this._deleting}
@@ -124,12 +125,12 @@ class DialogMediaManage extends LitElement {
                   @click=${this._handleDelete}
                 >
                   <ha-svg-icon .path=${mdiDelete} slot="icon"></ha-svg-icon>
-                </mwc-button>
+                </ha-button>
 
                 ${this._deleting
                   ? ""
                   : html`
-                      <mwc-button
+                      <ha-button
                         slot="actionItems"
                         .label=${`Deselect all`}
                         @click=${this._handleDeselectAll}
@@ -138,7 +139,7 @@ class DialogMediaManage extends LitElement {
                           .path=${mdiClose}
                           slot="icon"
                         ></ha-svg-icon>
-                      </mwc-button>
+                      </ha-button>
                     `}
               `}
         </ha-header-bar>
@@ -298,7 +299,7 @@ class DialogMediaManage extends LitElement {
         }
 
         ha-media-upload-button,
-        mwc-button {
+        ha-button {
           --mdc-theme-primary: var(--mdc-theme-on-primary);
         }
 

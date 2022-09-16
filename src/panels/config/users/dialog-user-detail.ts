@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@polymer/paper-tooltip/paper-tooltip";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
+import "../../../components/ha-button";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
 import "../../../components/ha-help-tooltip";
@@ -161,7 +161,7 @@ class DialogUserDetail extends LitElement {
         </div>
 
         <div slot="secondaryAction">
-          <mwc-button
+          <ha-button
             class="warning"
             @click=${this._deleteEntry}
             .disabled=${this._submitting ||
@@ -169,7 +169,7 @@ class DialogUserDetail extends LitElement {
             user.is_owner}
           >
             ${this.hass!.localize("ui.panel.config.users.editor.delete_user")}
-          </mwc-button>
+          </ha-button>
           ${user.system_generated
             ? html`
                 <paper-tooltip animation-delay="0" position="right">
@@ -180,23 +180,23 @@ class DialogUserDetail extends LitElement {
               `
             : ""}
           ${!user.system_generated && this.hass.user?.is_owner
-            ? html`<mwc-button @click=${this._changePassword}>
+            ? html`<ha-button @click=${this._changePassword}>
                 ${this.hass.localize(
                   "ui.panel.config.users.editor.change_password"
                 )}
-              </mwc-button>`
+              </ha-button>`
             : ""}
         </div>
 
         <div slot="primaryAction">
-          <mwc-button
+          <ha-button
             @click=${this._updateEntry}
             .disabled=${!this._name ||
             this._submitting ||
             user.system_generated}
           >
             ${this.hass!.localize("ui.panel.config.users.editor.update_user")}
-          </mwc-button>
+          </ha-button>
           ${user.system_generated
             ? html`
                 <paper-tooltip animation-delay="0" position="left">

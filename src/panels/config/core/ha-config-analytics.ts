@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -11,6 +10,7 @@ import { customElement, property, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/ha-analytics";
 import { analyticsLearnMore } from "../../../components/ha-analytics-learn-more";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-checkbox";
 import "../../../components/ha-settings-row";
@@ -53,11 +53,11 @@ class ConfigAnalytics extends LitElement {
           ></ha-analytics>
         </div>
         <div class="card-actions">
-          <mwc-button @click=${this._save}>
+          <ha-button @click=${this._save}>
             ${this.hass.localize(
               "ui.panel.config.core.section.core.core_config.save_button"
             )}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-card>
       <div class="footer">${analyticsLearnMore(this.hass)}</div>

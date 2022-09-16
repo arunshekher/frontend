@@ -6,6 +6,7 @@ import { customElement, property } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { haStyle } from "../resources/styles";
 import { HomeAssistant } from "../types";
+import "./ha-button";
 import "./ha-button-menu";
 import "./ha-icon-button";
 import "./ha-svg-icon";

@@ -1,9 +1,9 @@
-import "../../../../../components/ha-circular-progress";
-import "@material/mwc-button/mwc-button";
 import { mdiStethoscope, mdiCheckCircle, mdiCloseCircle } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../../common/dom/fire_event";
+import "../../../../../components/ha-button";
+import "../../../../../components/ha-circular-progress";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
 import {
   DeviceRegistryEntry,
@@ -82,11 +82,11 @@ class DialogZWaveJSHealNode extends LitElement {
                   )}
                 </em>
               </p>
-              <mwc-button slot="primaryAction" @click=${this._startHeal}>
+              <ha-button slot="primaryAction" @click=${this._startHeal}>
                 ${this.hass.localize(
                   "ui.panel.config.zwave_js.heal_node.start_heal"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "started"
@@ -106,9 +106,9 @@ class DialogZWaveJSHealNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "failed"
@@ -140,9 +140,9 @@ class DialogZWaveJSHealNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "finished"
@@ -165,9 +165,9 @@ class DialogZWaveJSHealNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "network-healing"
@@ -185,9 +185,9 @@ class DialogZWaveJSHealNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
       </ha-dialog>

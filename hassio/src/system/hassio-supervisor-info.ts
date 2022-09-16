@@ -4,6 +4,7 @@ import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
 import "../../../src/components/ha-alert";
+import "../../../src/components/ha-button";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-settings-row";
 import "../../../src/components/ha-switch";
@@ -79,10 +80,10 @@ class HassioSupervisorInfo extends LitElement {
               this.supervisor.supervisor.update_available
                 ? html`
                     <a href="/hassio/update-available/supervisor">
-                      <mwc-button
+                      <ha-button
                         .label=${this.supervisor.localize("common.show")}
                       >
-                      </mwc-button>
+                      </ha-button>
                     </a>
                   `
                 : ""}
@@ -154,24 +155,24 @@ class HassioSupervisorInfo extends LitElement {
                   ${this.supervisor.localize(
                     "system.supervisor.unsupported_title"
                   )}
-                  <mwc-button
+                  <ha-button
                     slot="action"
                     .label=${this.supervisor.localize("common.learn_more")}
                     @click=${this._unsupportedDialog}
                   >
-                  </mwc-button>
+                  </ha-button>
                 </ha-alert>`}
             ${!this.supervisor.supervisor.healthy
               ? html`<ha-alert alert-type="error">
                   ${this.supervisor.localize(
                     "system.supervisor.unhealthy_title"
                   )}
-                  <mwc-button
+                  <ha-button
                     slot="action"
                     .label=${this.supervisor.localize("common.learn_more")}
                     @click=${this._unhealthyDialog}
                   >
-                  </mwc-button>
+                  </ha-button>
                 </ha-alert>`
               : ""}
           </div>
@@ -469,7 +470,7 @@ class HassioSupervisorInfo extends LitElement {
           white-space: normal;
           color: var(--secondary-text-color);
         }
-        ha-alert mwc-button {
+        ha-alert ha-button {
           --mdc-theme-primary: var(--primary-text-color);
         }
         a {

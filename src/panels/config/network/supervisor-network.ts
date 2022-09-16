@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { ActionDetail } from "@material/mwc-list/mwc-list";
 import "@material/mwc-list/mwc-list-item";
 import "@material/mwc-tab";
@@ -9,6 +8,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { cache } from "lit/directives/cache";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
@@ -116,7 +116,7 @@ export class HassioNetwork extends LitElement {
                       )}
                     </p>`
                   : ""}
-                <mwc-button
+                <ha-button
                   class="scan"
                   @click=${this._scanForAP}
                   .disabled=${this._scanning}
@@ -127,7 +127,7 @@ export class HassioNetwork extends LitElement {
                     : this.hass.localize(
                         "ui.panel.config.network.supervisor.scan_ap"
                       )}
-                </mwc-button>
+                </ha-button>
                 ${this._accessPoints &&
                 this._accessPoints.accesspoints &&
                 this._accessPoints.accesspoints.length !== 0
@@ -233,12 +233,12 @@ export class HassioNetwork extends LitElement {
           : ""}
       </div>
       <div class="card-actions">
-        <mwc-button @click=${this._updateNetwork} .disabled=${!this._dirty}>
+        <ha-button @click=${this._updateNetwork} .disabled=${!this._dirty}>
           ${this._processing
             ? html`<ha-circular-progress active size="small">
               </ha-circular-progress>`
             : this.hass.localize("ui.common.save")}
-        </mwc-button>
+        </ha-button>
         <ha-button-menu corner="BOTTOM_START" @action=${this._handleAction}>
           <ha-icon-button
             slot="trigger"
@@ -556,11 +556,11 @@ export class HassioNetwork extends LitElement {
           padding: 20px 24px;
         }
 
-        mwc-button.warning {
+        ha-button.warning {
           --mdc-theme-primary: var(--error-color);
         }
 
-        mwc-button.scan {
+        ha-button.scan {
           margin-left: 8px;
         }
 

@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import LocalizeMixin from "../mixins/localize-mixin";
+import "./ha-button";
 
 const STATES_INTERCEPTABLE = {
   cleaning: {
@@ -38,19 +38,19 @@ class HaVacuumState extends LocalizeMixin(PolymerElement) {
   static get template() {
     return html`
       <style>
-        mwc-button {
+        ha-button {
           top: 3px;
           height: 37px;
           margin-right: -0.57em;
         }
-        mwc-button[disabled] {
+        ha-button[disabled] {
           background-color: transparent;
           color: var(--secondary-text-color);
         }
       </style>
 
-      <mwc-button on-click="_callService" disabled="[[!_interceptable]]"
-        >[[_computeLabel(stateObj.state, _interceptable)]]</mwc-button
+      <ha-button on-click="_callService" disabled="[[!_interceptable]]"
+        >[[_computeLabel(stateObj.state, _interceptable)]]</ha-button
       >
     `;
   }

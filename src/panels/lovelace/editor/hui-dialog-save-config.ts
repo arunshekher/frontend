@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import { mdiHelpCircle } from "@mdi/js";
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
@@ -122,12 +122,12 @@ export class HuiSaveConfig extends LitElement implements HassDialog {
         </div>
         ${this._params.mode === "storage"
           ? html`
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .label=${this.hass!.localize("ui.common.cancel")}
                 @click=${this.closeDialog}
-              ></mwc-button>
-              <mwc-button
+              ></ha-button>
+              <ha-button
                 slot="primaryAction"
                 ?disabled=${this._saving}
                 aria-label=${this.hass!.localize(
@@ -145,16 +145,16 @@ export class HuiSaveConfig extends LitElement implements HassDialog {
                 ${this.hass!.localize(
                   "ui.panel.lovelace.editor.save_config.save"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : html`
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .label=${this.hass!.localize(
                   "ui.panel.lovelace.editor.save_config.close"
                 )}
                 @click=${this.closeDialog}
-              ></mwc-button>
+              ></ha-button>
             `}
       </ha-dialog>
     `;

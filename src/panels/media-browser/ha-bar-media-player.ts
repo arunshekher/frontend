@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-linear-progress/mwc-linear-progress";
 import type { LinearProgress } from "@material/mwc-linear-progress/mwc-linear-progress";
 import "@material/mwc-list/mwc-list-item";
@@ -29,6 +28,7 @@ import { computeStateDomain } from "../../common/entity/compute_state_domain";
 import { computeStateName } from "../../common/entity/compute_state_name";
 import { domainIcon } from "../../common/entity/domain_icon";
 import { supportsFeature } from "../../common/entity/supports-feature";
+import "../../components/ha-button";
 import "../../components/ha-button-menu";
 import "../../components/ha-circular-progress";
 import "../../components/ha-icon-button";
@@ -322,7 +322,7 @@ export class BarMediaPlayer extends SubscribeMixin(LitElement) {
                     ></ha-icon-button>
                   `
                 : html`
-                    <mwc-button
+                    <ha-button
                       slot="trigger"
                       .label=${this.narrow
                         ? ""
@@ -343,7 +343,7 @@ export class BarMediaPlayer extends SubscribeMixin(LitElement) {
                         slot="trailingIcon"
                         .path=${mdiChevronDown}
                       ></ha-svg-icon>
-                    </mwc-button>
+                    </ha-button>
                   `
             }
             <mwc-list-item
@@ -581,7 +581,7 @@ export class BarMediaPlayer extends SubscribeMixin(LitElement) {
         --mdc-theme-primary: var(--secondary-text-color);
       }
 
-      mwc-button[slot="trigger"] {
+      ha-button[slot="trigger"] {
         --mdc-theme-primary: var(--primary-text-color);
         --mdc-icon-size: 36px;
       }
@@ -661,7 +661,7 @@ export class BarMediaPlayer extends SubscribeMixin(LitElement) {
         margin: 16px 0 16px 16px;
       }
 
-      ha-button-menu mwc-button {
+      ha-button-menu ha-button {
         line-height: 1;
       }
 

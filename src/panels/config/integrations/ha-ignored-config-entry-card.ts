@@ -1,6 +1,7 @@
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import { deleteConfigEntry } from "../../../data/config_entries";
 import type { IntegrationManifest } from "../../../data/integration";
 import { showConfirmationDialog } from "../../../dialogs/generic/show-dialog-box";
@@ -32,12 +33,12 @@ export class HaIgnoredConfigEntryCard extends LitElement {
             this.entry.localized_domain_name
           : this.entry.title}
       >
-        <mwc-button
+        <ha-button
           @click=${this._removeIgnoredIntegration}
           .label=${this.hass.localize(
             "ui.panel.config.integrations.ignore.stop_ignore"
           )}
-        ></mwc-button>
+        ></ha-button>
       </ha-integration-action-card>
     `;
   }
@@ -76,7 +77,7 @@ export class HaIgnoredConfigEntryCard extends LitElement {
       --state-color: var(--divider-color, #e0e0e0);
     }
 
-    mwc-button {
+    ha-button {
       --mdc-theme-primary: var(--primary-color);
     }
   `;

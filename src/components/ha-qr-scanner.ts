@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiCamera } from "@mdi/js";
 import { css, html, LitElement, PropertyValues, TemplateResult } from "lit";
@@ -8,6 +7,7 @@ import { fireEvent } from "../common/dom/fire_event";
 import { stopPropagation } from "../common/dom/stop_propagation";
 import { LocalizeFunc } from "../common/translations/localize";
 import "./ha-alert";
+import "./ha-button";
 import "./ha-button-menu";
 import "./ha-textfield";
 import type { HaTextField } from "./ha-textfield";
@@ -106,8 +106,8 @@ class HaQrScanner extends LitElement {
               @keyup=${this._manualKeyup}
               @paste=${this._manualPaste}
             ></ha-textfield>
-            <mwc-button @click=${this._manualSubmit}
-              >${this.localize("ui.common.submit")}</mwc-button
+            <ha-button @click=${this._manualSubmit}
+              >${this.localize("ui.common.submit")}</ha-button
             >
           </div>`}`;
   }

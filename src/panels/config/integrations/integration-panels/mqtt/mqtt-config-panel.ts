@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-code-editor";
 import { getConfigEntries } from "../../../../../data/config_entries";
@@ -39,8 +39,8 @@ class HaPanelDevMqtt extends LitElement {
         <div class="content">
           <ha-card header="MQTT settings">
             <div class="card-actions">
-              <mwc-button @click=${this._openOptionFlow}
-                >Re-configure MQTT</mwc-button
+              <ha-button @click=${this._openOptionFlow}
+                >Re-configure MQTT</ha-button
               >
             </div>
           </ha-card>
@@ -68,10 +68,10 @@ class HaPanelDevMqtt extends LitElement {
               ></ha-code-editor>
             </div>
             <div class="card-actions">
-              <mwc-button @click=${this._publish}
+              <ha-button @click=${this._publish}
                 >${this.hass.localize(
                   "ui.panel.config.mqtt.publish"
-                )}</mwc-button
+                )}</ha-button
               >
             </div>
           </ha-card>

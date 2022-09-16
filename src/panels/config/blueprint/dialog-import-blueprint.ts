@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-expansion-panel";
@@ -126,7 +126,7 @@ class DialogImportBlueprint extends LitElement {
                 ></ha-textfield>`}
         </div>
         ${!this._result
-          ? html`<mwc-button
+          ? html`<ha-button
               slot="primaryAction"
               @click=${this._import}
               .disabled=${this._importing}
@@ -141,15 +141,15 @@ class DialogImportBlueprint extends LitElement {
                   ></ha-circular-progress>`
                 : ""}
               ${this.hass.localize("ui.panel.config.blueprint.add.import_btn")}
-            </mwc-button>`
-          : html`<mwc-button
+            </ha-button>`
+          : html`<ha-button
                 slot="secondaryAction"
                 @click=${this.closeDialog}
                 .disabled=${this._saving}
               >
                 ${this.hass.localize("ui.common.cancel")}
-              </mwc-button>
-              <mwc-button
+              </ha-button>
+              <ha-button
                 slot="primaryAction"
                 @click=${this._save}
                 .disabled=${this._saving || this._result.validation_errors}
@@ -164,7 +164,7 @@ class DialogImportBlueprint extends LitElement {
                     ></ha-circular-progress>`
                   : ""}
                 ${this.hass.localize("ui.panel.config.blueprint.add.save_btn")}
-              </mwc-button>`}
+              </ha-button>`}
       </ha-dialog>
     `;
   }

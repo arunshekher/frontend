@@ -10,6 +10,7 @@ import { customElement, property, query, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../../../common/config/is_component_loaded";
 import { dynamicElement } from "../../../../../common/dom/dynamic-element-directive";
 import { fireEvent } from "../../../../../common/dom/fire_event";
+import "../../../../../components/ha-button";
 import {
   ExtEntityRegistryEntry,
   removeEntityRegistryEntry,
@@ -93,20 +94,20 @@ export class EntityRegistrySettingsHelper extends LitElement {
         ></ha-registry-basic-editor>
       </div>
       <div class="buttons">
-        <mwc-button
+        <ha-button
           class="warning"
           @click=${this._confirmDeleteItem}
           .disabled=${this._submitting ||
           (!this._item && !stateObj?.attributes.restored)}
         >
           ${this.hass.localize("ui.dialogs.entity_registry.editor.delete")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._updateItem}
           .disabled=${this._submitting || (this._item && !this._item.name)}
         >
           ${this.hass.localize("ui.dialogs.entity_registry.editor.update")}
-        </mwc-button>
+        </ha-button>
       </div>
     `;
   }

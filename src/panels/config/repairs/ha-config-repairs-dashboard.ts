@@ -8,6 +8,7 @@ import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { shouldHandleRequestSelectedEvent } from "../../../common/mwc/handle-request-selected-event";
 import { navigate } from "../../../common/navigate";
 import { extractSearchParam } from "../../../common/url/search-params";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-check-list-item";
 import {

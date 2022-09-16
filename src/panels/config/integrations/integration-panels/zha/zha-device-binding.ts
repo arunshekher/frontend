@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiHelpCircle } from "@mdi/js";
 import {
@@ -12,6 +11,7 @@ import {
 import { customElement, property, state } from "lit/decorators";
 import { stopPropagation } from "../../../../../common/dom/stop_propagation";
 import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-icon-button";
 import "../../../../../components/ha-select";
@@ -90,18 +90,18 @@ export class ZHADeviceBindingControl extends LitElement {
               `
             : ""}
           <div class="card-actions">
-            <mwc-button
+            <ha-button
               @click=${this._onBindDevicesClick}
               .disabled=${!(this._deviceToBind && this.selectedDevice)}
-              >Bind</mwc-button
+              >Bind</ha-button
             >
             ${this._showHelp
               ? html` <div class="helpText">Bind devices.</div> `
               : ""}
-            <mwc-button
+            <ha-button
               @click=${this._onUnbindDevicesClick}
               .disabled=${!(this._deviceToBind && this.selectedDevice)}
-              >Unbind</mwc-button
+              >Unbind</ha-button
             >
             ${this._showHelp
               ? html` <div class="helpText">Unbind devices.</div> `

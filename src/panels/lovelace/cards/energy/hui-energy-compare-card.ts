@@ -97,7 +97,7 @@ export class HuiEnergyCompareCard
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button {
+      ha-button {
         width: max-content;
       }
     `;

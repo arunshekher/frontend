@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list";
 import "@material/mwc-list/mwc-list-item";
 import "@material/mwc-tab";
@@ -10,6 +9,7 @@ import { customElement, property, state } from "lit/decorators";
 import { cache } from "lit/directives/cache";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
 import "../../../../src/components/ha-alert";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-circular-progress";
 import "../../../../src/components/ha-dialog";
 import "../../../../src/components/ha-expansion-panel";
@@ -148,7 +148,7 @@ export class DialogHassioNetwork
                       )}
                     </p>`
                   : ""}
-                <mwc-button
+                <ha-button
                   class="scan"
                   @click=${this._scanForAP}
                   .disabled=${this._scanning}
@@ -157,7 +157,7 @@ export class DialogHassioNetwork
                     ? html`<ha-circular-progress active size="small">
                       </ha-circular-progress>`
                     : this.supervisor.localize("dialog.network.scan_ap")}
-                </mwc-button>
+                </ha-button>
                 ${this._accessPoints &&
                 this._accessPoints.accesspoints &&
                 this._accessPoints.accesspoints.length !== 0
@@ -261,17 +261,17 @@ export class DialogHassioNetwork
           : ""}
       </div>
       <div class="buttons">
-        <mwc-button
+        <ha-button
           .label=${this.supervisor.localize("common.cancel")}
           @click=${this.closeDialog}
         >
-        </mwc-button>
-        <mwc-button @click=${this._updateNetwork} .disabled=${!this._dirty}>
+        </ha-button>
+        <ha-button @click=${this._updateNetwork} .disabled=${!this._dirty}>
           ${this._processing
             ? html`<ha-circular-progress active size="small">
               </ha-circular-progress>`
             : this.supervisor.localize("common.save")}
-        </mwc-button>
+        </ha-button>
       </div>`;
   }
 
@@ -581,11 +581,11 @@ export class DialogHassioNetwork
           }
         }
 
-        mwc-button.warning {
+        ha-button.warning {
           --mdc-theme-primary: var(--error-color);
         }
 
-        mwc-button.scan {
+        ha-button.scan {
           margin-left: 8px;
         }
 

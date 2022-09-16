@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { createCloseHeading } from "../../../../components/ha-dialog";
+import "../../../../components/ha-button";
 import "../../../../components/ha-form/ha-form";
 import { SchemaUnion } from "../../../../components/ha-form/types";
 import { LovelaceResourcesMutableParams } from "../../../../data/lovelace";
@@ -103,7 +103,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
         </div>
         ${this._params.resource
           ? html`
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 class="warning"
                 @click=${this._deleteResource}
@@ -112,10 +112,10 @@ export class DialogLovelaceResourceDetail extends LitElement {
                 ${this.hass!.localize(
                   "ui.panel.config.lovelace.resources.detail.delete"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : html``}
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._updateResource}
           .disabled=${urlInvalid || !this._data?.res_type || this._submitting}
@@ -127,7 +127,7 @@ export class DialogLovelaceResourceDetail extends LitElement {
             : this.hass!.localize(
                 "ui.panel.config.lovelace.resources.detail.create"
               )}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

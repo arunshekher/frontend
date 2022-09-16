@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { formatTime } from "../../../../../common/datetime/format_time";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import { MQTTMessage, subscribeMQTTTopic } from "../../../../../data/mqtt";
 import { HomeAssistant } from "../../../../../types";
@@ -46,7 +46,7 @@ class MqttSubscribeCard extends LitElement {
             .value=${this._topic}
             @value-changed=${this._valueChanged}
           ></paper-input>
-          <mwc-button
+          <ha-button
             .disabled=${this._topic === ""}
             @click=${this._handleSubmit}
             type="submit"
@@ -54,7 +54,7 @@ class MqttSubscribeCard extends LitElement {
             ${this._subscribed
               ? this.hass.localize("ui.panel.config.mqtt.stop_listening")
               : this.hass.localize("ui.panel.config.mqtt.start_listening")}
-          </mwc-button>
+          </ha-button>
         </form>
         <div class="events">
           ${this._messages.map(

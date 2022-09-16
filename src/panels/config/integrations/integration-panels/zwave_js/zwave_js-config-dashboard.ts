@@ -10,6 +10,7 @@ import {
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-icon-button";
 import "../../../../../components/ha-expansion-panel";
@@ -142,7 +143,7 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
                   ${this.hass.localize(
                     `ui.panel.config.zwave_js.common.in_progress_inclusion_exclusion`
                   )}
-                  <mwc-button
+                  <ha-button
                     slot="action"
                     .label=${this.hass.localize(
                       `ui.panel.config.zwave_js.common.cancel_inclusion_exclusion`
@@ -152,7 +153,7 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
                       ? this._cancelInclusion
                       : this._cancelExclusion}
                   >
-                  </mwc-button>
+                  </ha-button>
                 </ha-alert>
               `
             : ""}
@@ -209,27 +210,27 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
                     <a
                       href=${`/config/devices/dashboard?historyBack=1&config_entry=${this.configEntryId}`}
                     >
-                      <mwc-button>
+                      <ha-button>
                         ${this.hass.localize("ui.panel.config.devices.caption")}
-                      </mwc-button>
+                      </ha-button>
                     </a>
                     <a
                       href=${`/config/entities/dashboard?historyBack=1&config_entry=${this.configEntryId}`}
                     >
-                      <mwc-button>
+                      <ha-button>
                         ${this.hass.localize(
                           "ui.panel.config.entities.caption"
                         )}
-                      </mwc-button>
+                      </ha-button>
                     </a>
                     ${this._provisioningEntries?.length
                       ? html`<a
                           href=${`provisioned?config_entry=${this.configEntryId}`}
-                          ><mwc-button>
+                          ><ha-button>
                             ${this.hass.localize(
                               "ui.panel.config.zwave_js.dashboard.provisioned_devices"
                             )}
-                          </mwc-button></a
+                          </ha-button></a
                         >`
                       : ""}
                   </div>
@@ -410,7 +411,7 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
                     </ha-expansion-panel>
                   </div>
                   <div class="card-actions">
-                    <mwc-button
+                    <ha-button
                       @click=${this._removeNodeClicked}
                       .disabled=${this._status !== "connected" ||
                       (this._network?.controller.inclusion_state !==
@@ -421,20 +422,20 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
                       ${this.hass.localize(
                         "ui.panel.config.zwave_js.common.remove_node"
                       )}
-                    </mwc-button>
-                    <mwc-button
+                    </ha-button>
+                    <ha-button
                       @click=${this._healNetworkClicked}
                       .disabled=${this._status === "disconnected"}
                     >
                       ${this.hass.localize(
                         "ui.panel.config.zwave_js.common.heal_network"
                       )}
-                    </mwc-button>
-                    <mwc-button @click=${this._openOptionFlow}>
+                    </ha-button>
+                    <ha-button @click=${this._openOptionFlow}>
                       ${this.hass.localize(
                         "ui.panel.config.zwave_js.common.reconfigure_server"
                       )}
-                    </mwc-button>
+                    </ha-button>
                   </div>
                 </ha-card>
                 <ha-card>
@@ -544,9 +545,9 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
               ${this._configEntry!.title}: ${this.hass.localize(...stateText)}
             </h3>
             <p>${stateTextExtra}</p>
-            <mwc-button @click=${this._handleBack}>
+            <ha-button @click=${this._handleBack}>
               ${this.hass?.localize("ui.common.back")}
-            </mwc-button>
+            </ha-button>
           </div>
         `
       : ""}`;

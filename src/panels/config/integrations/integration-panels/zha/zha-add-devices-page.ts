@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@polymer/paper-input/paper-textarea";
 import {
   css,
@@ -9,6 +8,7 @@ import {
   TemplateResult,
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-circular-progress";
 import "../../../../../components/ha-service-description";
 import {
@@ -87,8 +87,8 @@ class ZHAAddDevicesPage extends LitElement {
         .route=${this.route!}
         .tabs=${zhaTabs}
       >
-        <mwc-button slot="toolbar-icon" @click=${this._toggleLogs}
-          >${this._showLogs ? "Hide logs" : "Show logs"}</mwc-button
+        <ha-button slot="toolbar-icon" @click=${this._toggleLogs}
+          >${this._showLogs ? "Hide logs" : "Show logs"}</ha-button
         >
         <div class="searching">
           ${this._active
@@ -105,11 +105,11 @@ class ZHAAddDevicesPage extends LitElement {
               `
             : html`
                 <div>
-                  <mwc-button @click=${this._subscribe} class="search-button">
+                  <ha-button @click=${this._subscribe} class="search-button">
                     ${this.hass!.localize(
                       "ui.panel.config.zha.add_device_page.search_again"
                     )}
-                  </mwc-button>
+                  </ha-button>
                 </div>
               `}
         </div>

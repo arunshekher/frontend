@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
 import "../components/ha-analytics";
+import "../components/ha-button";
 import { analyticsLearnMore } from "../components/ha-analytics-learn-more";
 import { Analytics, setAnalyticsPreferences } from "../data/analytics";
 import { onboardAnalyticsStep } from "../data/onboarding";
@@ -36,9 +36,9 @@ class OnboardingAnalytics extends LitElement {
       </ha-analytics>
       ${this._error ? html`<div class="error">${this._error}</div>` : ""}
       <div class="footer">
-        <mwc-button @click=${this._save} .disabled=${!this._analyticsDetails}>
+        <ha-button @click=${this._save} .disabled=${!this._analyticsDetails}>
           ${this.localize("ui.panel.page-onboarding.analytics.finish")}
-        </mwc-button>
+        </ha-button>
         ${analyticsLearnMore(this.hass)}
       </div>
     `;

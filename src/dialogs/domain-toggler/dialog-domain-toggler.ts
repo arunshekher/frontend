@@ -1,8 +1,8 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { createCloseHeading } from "../../components/ha-dialog";
+import "../../components/ha-button";
 import "../../components/ha-formfield";
 import "../../components/ha-switch";
 import { domainToName } from "../../data/integration";
@@ -67,11 +67,11 @@ class DomainTogglerDialog
                   >
                   </ha-switch>
                 </ha-formfield>
-                <mwc-button .domain=${domain[1]} @click=${this._handleReset}>
+                <ha-button .domain=${domain[1]} @click=${this._handleReset}>
                   ${this.hass.localize(
                     "ui.dialogs.domain_toggler.reset_entities"
                   )}
-                </mwc-button>
+                </ha-button>
               `
           )}
         </div>

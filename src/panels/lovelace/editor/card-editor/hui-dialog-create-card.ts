@@ -9,6 +9,7 @@ import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeDomain } from "../../../../common/entity/compute_domain";
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { DataTableRowData } from "../../../../components/data-table/ha-data-table";
+import "../../../../components/ha-button";
 import "../../../../components/ha-dialog";
 import "../../../../components/ha-header-bar";
 import type { LovelaceViewConfig } from "../../../../data/lovelace";
@@ -124,14 +125,14 @@ export class HuiCreateDialogCard
         )}
 
         <div slot="primaryAction">
-          <mwc-button @click=${this._cancel}>
+          <ha-button @click=${this._cancel}>
             ${this.hass!.localize("ui.common.cancel")}
-          </mwc-button>
+          </ha-button>
           ${this._selectedEntities.length
             ? html`
-                <mwc-button @click=${this._suggestCards}>
+                <ha-button @click=${this._suggestCards}>
                   ${this.hass!.localize("ui.common.continue")}
-                </mwc-button>
+                </ha-button>
               `
             : ""}
         </div>

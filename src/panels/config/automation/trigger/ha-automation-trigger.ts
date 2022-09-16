@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import type { ActionDetail } from "@material/mwc-list";
 import { mdiArrowDown, mdiArrowUp, mdiDrag, mdiPlus } from "@mdi/js";
 import deepClone from "deep-clone-simple";
@@ -10,6 +9,7 @@ import type { SortableEvent } from "sortablejs";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { stringCompare } from "../../../../common/string/compare";
 import type { LocalizeFunc } from "../../../../common/translations/localize";
+import "../../../../components/ha-button";
 import "../../../../components/ha-button-menu";
 import type { HaSelect } from "../../../../components/ha-select";
 import "../../../../components/ha-svg-icon";
@@ -98,7 +98,7 @@ export default class HaAutomationTrigger extends LitElement {
         )}
         </div>
         <ha-button-menu @action=${this._addTrigger}>
-          <mwc-button
+          <ha-button
             slot="trigger"
             outlined
             .label=${this.hass.localize(
@@ -106,7 +106,7 @@ export default class HaAutomationTrigger extends LitElement {
             )}
           >
             <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
-          </mwc-button>
+          </ha-button>
           ${this._processedTypes(this.hass.localize).map(
             ([opt, label, icon]) => html`
               <mwc-list-item .value=${opt} aria-label=${label} graphic="icon">

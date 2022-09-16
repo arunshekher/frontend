@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import deepFreeze from "deep-freeze";
 import { html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
+import "../../components/ha-button";
 import { constructUrlCurrentPath } from "../../common/url/construct-url";
 import {
   addSearchParam,
@@ -120,9 +120,9 @@ class LovelacePanel extends LitElement {
           title=${domainToName(this.hass!.localize, "lovelace")}
           .error=${this._errorMsg}
         >
-          <mwc-button raised @click=${this._forceFetchConfig}>
+          <ha-button raised @click=${this._forceFetchConfig}>
             ${this.hass!.localize("ui.panel.lovelace.reload_lovelace")}
-          </mwc-button>
+          </ha-button>
         </hass-error-screen>
       `;
     }

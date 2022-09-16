@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@polymer/iron-flex-layout/iron-flex-layout-classes";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../components/entity/state-info";
+import "../components/ha-button";
 import { activateScene } from "../data/scene";
 import LocalizeMixin from "../mixins/localize-mixin";
 
@@ -15,7 +15,7 @@ class StateCardScene extends LocalizeMixin(PolymerElement) {
     return html`
       <style include="iron-flex iron-flex-alignment"></style>
       <style>
-        mwc-button {
+        ha-button {
           top: 3px;
           height: 37px;
           margin-right: -0.57em;
@@ -24,8 +24,8 @@ class StateCardScene extends LocalizeMixin(PolymerElement) {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <mwc-button on-click="_activateScene"
-          >[[localize('ui.card.scene.activate')]]</mwc-button
+        <ha-button on-click="_activateScene"
+          >[[localize('ui.card.scene.activate')]]</ha-button
         >
       </div>
     `;

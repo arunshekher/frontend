@@ -1,7 +1,7 @@
-import "@material/mwc-button/mwc-button";
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-dialog";
 import {
   DeviceAction,
@@ -134,9 +134,9 @@ export class DialogDeviceAutomation extends LitElement {
                 "ui.panel.config.devices.automation.no_device_automations"
               )}
         </div>
-        <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+        <ha-button slot="primaryAction" @click=${this.closeDialog}>
           ${this.hass.localize("ui.common.close")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

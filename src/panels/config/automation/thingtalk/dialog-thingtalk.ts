@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-circular-progress";
 import "../../../../components/ha-dialog";
 import "../../../../components/ha-textfield";
@@ -142,10 +142,10 @@ class DialogThingtalk extends LitElement {
             >Powered by Almond</a
           >
         </div>
-        <mwc-button class="left" @click=${this._skip} slot="secondaryAction">
+        <ha-button class="left" @click=${this._skip} slot="secondaryAction">
           ${this.hass.localize(`ui.common.skip`)}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._generate}
           .disabled=${this._submitting}
           slot="primaryAction"
@@ -158,7 +158,7 @@ class DialogThingtalk extends LitElement {
               ></ha-circular-progress>`
             : ""}
           ${this.hass.localize(`ui.panel.config.automation.thingtalk.create`)}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }
@@ -252,7 +252,7 @@ class DialogThingtalk extends LitElement {
         ha-dialog {
           max-width: 500px;
         }
-        mwc-button.left {
+        ha-button.left {
           margin-right: auto;
         }
         .error {

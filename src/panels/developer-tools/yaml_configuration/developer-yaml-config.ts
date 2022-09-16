@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { componentsWithService } from "../../../common/config/components_with_service";
 import "../../../components/buttons/ha-call-service-button";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
 import { checkCoreConfig } from "../../../data/core";
@@ -89,12 +89,12 @@ export class DeveloperYamlConfig extends LitElement {
                 `}
           </div>
           <div class="card-actions">
-            <mwc-button @click=${this._validateConfig}>
+            <ha-button @click=${this._validateConfig}>
               ${this.hass.localize(
                 "ui.panel.developer-tools.tabs.yaml.section.validation.check_config"
               )}
-            </mwc-button>
-            <mwc-button
+            </ha-button>
+            <ha-button
               class="warning"
               @click=${this._restart}
               .disabled=${this._validateLog}
@@ -102,7 +102,7 @@ export class DeveloperYamlConfig extends LitElement {
               ${this.hass.localize(
                 "ui.panel.developer-tools.tabs.yaml.section.server_management.restart"
               )}
-            </mwc-button>
+            </ha-button>
           </div>
         </ha-card>
         <ha-card

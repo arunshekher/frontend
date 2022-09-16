@@ -543,7 +543,7 @@ export class HaDataTable extends LitElement {
 
   private _handleRowClick = (ev: Event) => {
     const target = ev.target as HTMLElement;
-    if (["HA-CHECKBOX", "MWC-BUTTON"].includes(target.tagName)) {
+    if (["HA-CHECKBOX", "HA-BUTTON"].includes(target.tagName)) {
       return;
     }
     const rowId = (ev.currentTarget as any).rowId;

@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { mdiImagePlus, mdiPencil } from "@mdi/js";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-item/paper-item-body";
@@ -16,6 +15,7 @@ import { computeStateName } from "../../../common/entity/compute_state_name";
 import { caseInsensitiveStringCompare } from "../../../common/string/compare";
 import { groupBy } from "../../../common/util/group-by";
 import { afterNextRender } from "../../../common/util/render-status";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-icon-next";
@@ -268,7 +268,7 @@ class HaConfigAreaPage extends SubscribeMixin(LitElement) {
                     class="img-edit-btn"
                   ></ha-icon-button>
                 </div>`
-              : html`<mwc-button
+              : html`<ha-button
                   .entry=${area}
                   @click=${this._showSettings}
                   .label=${this.hass.localize(
@@ -276,7 +276,7 @@ class HaConfigAreaPage extends SubscribeMixin(LitElement) {
                   )}
                 >
                   <ha-svg-icon .path=${mdiImagePlus} slot="icon"></ha-svg-icon>
-                </mwc-button>`}
+                </ha-button>`}
             <ha-card
               outlined
               .header=${this.hass.localize("ui.panel.config.devices.caption")}

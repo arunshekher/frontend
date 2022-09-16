@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { ActionDetail } from "@material/mwc-list/mwc-list-foundation";
 import "@material/mwc-list/mwc-list-item";
 import { mdiArrowDown, mdiArrowUp, mdiDotsVertical } from "@mdi/js";
@@ -12,6 +11,7 @@ import {
 } from "lit";
 import { customElement, property, queryAssignedNodes } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-icon-button";
 import { saveConfig } from "../../../data/lovelace";
@@ -53,10 +53,10 @@ export class HuiCardOptions extends LitElement {
       <div class="card"><slot></slot></div>
       <ha-card>
         <div class="card-actions">
-          <mwc-button @click=${this._editCard}
+          <ha-button @click=${this._editCard}
             >${this.hass!.localize(
               "ui.panel.lovelace.editor.edit_card.edit"
-            )}</mwc-button
+            )}</ha-button
           >
           <div>
             <slot name="buttons"></slot>

@@ -19,6 +19,7 @@ import {
 import { showAlertDialog } from "../../dialogs/generic/show-dialog-box";
 import { buttonLinkStyle } from "../../resources/styles";
 import { HomeAssistant } from "../../types";
+import "../ha-button";
 import "../ha-select";
 import "../ha-textarea";
 
@@ -80,11 +81,11 @@ class BrowseMediaTTS extends LitElement {
             `
           : html`<span></span>`}
 
-        <mwc-button @click=${this._ttsClicked}>
+        <ha-button @click=${this._ttsClicked}>
           ${this.hass.localize(
             `ui.components.media-browser.tts.action_${this.action}`
           )}
-        </mwc-button>
+        </ha-button>
       </div>
     </ha-card> `;
   }

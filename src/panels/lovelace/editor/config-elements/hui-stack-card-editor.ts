@@ -13,6 +13,7 @@ import {
   string,
 } from "superstruct";
 import { fireEvent, HASSDomEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-icon-button";
 import { LovelaceCardConfig, LovelaceConfig } from "../../../../data/lovelace";
 import { HomeAssistant } from "../../../../types";
@@ -97,7 +98,7 @@ export class HuiStackCardEditor
           ${selected < numcards
             ? html`
                 <div id="card-options">
-                  <mwc-button
+                  <ha-button
                     @click=${this._toggleMode}
                     .disabled=${!this._guiModeAvailable}
                     class="gui-mode-button"
@@ -107,7 +108,7 @@ export class HuiStackCardEditor
                         ? "ui.panel.lovelace.editor.edit_card.show_code_editor"
                         : "ui.panel.lovelace.editor.edit_card.show_visual_editor"
                     )}
-                  </mwc-button>
+                  </ha-button>
 
                   <ha-icon-button
                     .disabled=${selected === 0}

@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -8,6 +7,7 @@ import {
   TemplateResult,
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../../components/ha-button";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { canRun, ScriptEntity } from "../../../data/script";
 import { HomeAssistant } from "../../../types";
@@ -51,7 +51,7 @@ class HuiScriptEntityRow extends LitElement implements LovelaceRow {
     return html`
       <hui-generic-entity-row .hass=${this.hass} .config=${this._config}>
         ${stateObj.state === "on"
-          ? html`<mwc-button @click=${this._cancelScript}>
+          ? html`<ha-button @click=${this._cancelScript}>
               ${stateObj.attributes.mode !== "single" &&
               (stateObj.attributes.current || 0) > 0
                 ? this.hass.localize(
@@ -60,17 +60,17 @@ class HuiScriptEntityRow extends LitElement implements LovelaceRow {
                     stateObj.attributes.current
                   )
                 : this.hass.localize("ui.card.script.cancel")}
-            </mwc-button>`
+            </ha-button>`
           : ""}
         ${stateObj.state === "off" || stateObj.attributes.max
-          ? html`<mwc-button
+          ? html`<ha-button
               @click=${this._runScript}
               .disabled=${UNAVAILABLE_STATES.includes(stateObj.state) ||
               !canRun(stateObj)}
             >
               ${this._config.action_name ||
               this.hass!.localize("ui.card.script.run")}
-            </mwc-button>`
+            </ha-button>`
           : ""}
       </hui-generic-entity-row>
     `;
@@ -78,7 +78,7 @@ class HuiScriptEntityRow extends LitElement implements LovelaceRow {
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button:last-child {
+      ha-button:last-child {
         margin-right: -0.57em;
       }
     `;

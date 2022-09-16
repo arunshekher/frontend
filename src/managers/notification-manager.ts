@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state, query } from "lit/decorators";
 import { computeRTL } from "../common/util/compute_rtl";
+import "../components/ha-button";
 import "../components/ha-toast";
 import type { HaToast } from "../components/ha-toast";
 import type { HomeAssistant } from "../types";
@@ -55,10 +55,10 @@ class NotificationManager extends LitElement {
       <ha-toast .noCancelOnOutsideClick=${this._noCancelOnOutsideClick}>
         ${this._action
           ? html`
-              <mwc-button
+              <ha-button
                 .label=${this._action.text}
                 @click=${this.buttonClicked}
-              ></mwc-button>
+              ></ha-button>
             `
           : ""}
       </ha-toast>
@@ -80,7 +80,7 @@ class NotificationManager extends LitElement {
         justify-content: space-between;
         padding: 8px 12px;
       }
-      mwc-button {
+      ha-button {
         color: var(--primary-color);
         font-weight: bold;
         margin-left: 8px;

@@ -3,6 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../src/common/dom/fire_event";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-circular-progress";
 import "../../../../src/components/ha-markdown";
 import "../../../../src/components/ha-select";
@@ -112,7 +113,7 @@ class HassioDatadiskDialog extends LitElement {
                     "dialog.datadisk_move.no_devices"
                   )}
 
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 @click=${this.closeDialog}
                 dialogInitialFocus
@@ -120,9 +121,9 @@ class HassioDatadiskDialog extends LitElement {
                 ${this.dialogParams.supervisor.localize(
                   "dialog.datadisk_move.cancel"
                 )}
-              </mwc-button>
+              </ha-button>
 
-              <mwc-button
+              <ha-button
                 .disabled=${!this.selectedDevice}
                 slot="primaryAction"
                 @click=${this._moveDatadisk}
@@ -130,7 +131,7 @@ class HassioDatadiskDialog extends LitElement {
                 ${this.dialogParams.supervisor.localize(
                   "dialog.datadisk_move.move"
                 )}
-              </mwc-button>`}
+              </ha-button>`}
       </ha-dialog>
     `;
   }

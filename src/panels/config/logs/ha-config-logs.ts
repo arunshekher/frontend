@@ -3,6 +3,7 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { extractSearchParam } from "../../../common/url/search-params";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/search-input";
 import { LogProvider } from "../../../data/error_log";
@@ -115,7 +116,7 @@ export class HaConfigLogs extends LitElement {
         this.hass.userData?.showAdvanced
           ? html`
               <ha-button-menu corner="BOTTOM_START" slot="toolbar-icon">
-                <mwc-button
+                <ha-button
                   slot="trigger"
                   .label=${this._logProviders.find(
                     (p) => p.key === this._selectedLogProvider
@@ -125,7 +126,7 @@ export class HaConfigLogs extends LitElement {
                     slot="trailingIcon"
                     .path=${mdiChevronDown}
                   ></ha-svg-icon>
-                </mwc-button>
+                </ha-button>
                 ${this._logProviders.map(
                   (provider) => html`
                     <mwc-list-item
@@ -208,7 +209,7 @@ export class HaConfigLogs extends LitElement {
           direction: ltr;
         }
 
-        mwc-button[slot="trigger"] {
+        ha-button[slot="trigger"] {
           --mdc-theme-primary: var(--primary-text-color);
           --mdc-icon-size: 36px;
         }

@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@polymer/paper-item/paper-item";
 import "@polymer/paper-item/paper-item-body";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../../components/ha-button";
 import "../../components/ha-card";
 import { showConfirmationDialog } from "../../dialogs/generic/show-dialog-box";
 import { HomeAssistant, MFAModule } from "../../types";
@@ -25,15 +25,15 @@ class HaMfaModulesCard extends LitElement {
               <div secondary>${module.id}</div>
             </paper-item-body>
             ${module.enabled
-              ? html`<mwc-button .module=${module} @click=${this._disable}
+              ? html`<ha-button .module=${module} @click=${this._disable}
                   >${this.hass.localize(
                     "ui.panel.profile.mfa.disable"
-                  )}</mwc-button
+                  )}</ha-button
                 >`
-              : html`<mwc-button .module=${module} @click=${this._enable}
+              : html`<ha-button .module=${module} @click=${this._enable}
                   >${this.hass.localize(
                     "ui.panel.profile.mfa.enable"
-                  )}</mwc-button
+                  )}</ha-button
                 >`}
           </paper-item>`
         )}
@@ -43,7 +43,7 @@ class HaMfaModulesCard extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button {
+      ha-button {
         margin-right: -0.57em;
       }
     `;

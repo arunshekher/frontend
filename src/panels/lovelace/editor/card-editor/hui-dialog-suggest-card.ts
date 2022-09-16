@@ -2,6 +2,7 @@ import deepFreeze from "deep-freeze";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-yaml-editor";
 import type { HaYamlEditor } from "../../../../components/ha-yaml-editor";
 import { LovelaceCardConfig } from "../../../../data/lovelace";
@@ -92,7 +93,7 @@ export class HuiDialogSuggestCard extends LitElement {
               `
             : ""}
         </div>
-        <mwc-button
+        <ha-button
           slot="secondaryAction"
           @click=${this.closeDialog}
           dialogInitialFocus
@@ -100,15 +101,15 @@ export class HuiDialogSuggestCard extends LitElement {
           ${this._params.yaml
             ? this.hass!.localize("ui.common.close")
             : this.hass!.localize("ui.common.cancel")}
-        </mwc-button>
+        </ha-button>
         ${!this._params.yaml
           ? html`
-              <mwc-button slot="primaryAction" @click=${this._pickCard}
+              <ha-button slot="primaryAction" @click=${this._pickCard}
                 >${this.hass!.localize(
                   "ui.panel.lovelace.editor.suggest_card.create_own"
-                )}</mwc-button
+                )}</ha-button
               >
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .disabled=${this._saving}
                 @click=${this._save}
@@ -124,7 +125,7 @@ export class HuiDialogSuggestCard extends LitElement {
                   : this.hass!.localize(
                       "ui.panel.lovelace.editor.suggest_card.add"
                     )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
       </ha-dialog>

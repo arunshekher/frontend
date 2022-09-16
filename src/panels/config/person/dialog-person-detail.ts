@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import "../../../components/entity/ha-entities-picker";
+import "../../../components/ha-button";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
 import "../../../components/ha-textfield";
@@ -236,7 +236,7 @@ class DialogPersonDetail extends LitElement {
         </div>
         ${this._params.entry
           ? html`
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 class="warning"
                 @click=${this._deleteEntry}
@@ -244,20 +244,20 @@ class DialogPersonDetail extends LitElement {
                 this._submitting}
               >
                 ${this.hass!.localize("ui.panel.config.person.detail.delete")}
-              </mwc-button>
+              </ha-button>
               ${this._user && this.hass.user?.is_owner
-                ? html`<mwc-button
+                ? html`<ha-button
                     slot="secondaryAction"
                     @click=${this._changePassword}
                   >
                     ${this.hass.localize(
                       "ui.panel.config.users.editor.change_password"
                     )}
-                  </mwc-button>`
+                  </ha-button>`
                 : ""}
             `
           : html``}
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._updateEntry}
           .disabled=${nameInvalid || this._submitting}
@@ -265,7 +265,7 @@ class DialogPersonDetail extends LitElement {
           ${this._params.entry
             ? this.hass!.localize("ui.panel.config.person.detail.update")
             : this.hass!.localize("ui.panel.config.person.detail.create")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

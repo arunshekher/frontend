@@ -991,7 +991,7 @@ export class HaSceneEditor extends SubscribeMixin(
         .script ha-card {
           margin-top: 16px;
         }
-        .add-card mwc-button {
+        .add-card ha-button {
           display: block;
           text-align: center;
         }

@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { genClientId } from "home-assistant-js-websocket";
 import {
   css,
@@ -10,6 +9,7 @@ import {
 } from "lit";
 import { property, state } from "lit/decorators";
 import "../components/ha-alert";
+import "../components/ha-button";
 import "../components/ha-checkbox";
 import { computeInitialHaFormData } from "../components/ha-form/compute-initial-ha-form-data";
 import "../components/ha-form/ha-form";
@@ -142,7 +142,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
         return html`
           ${this._renderStep(this._step)}
           <div class="action">
-            <mwc-button
+            <ha-button
               raised
               @click=${this._handleSubmit}
               .disabled=${this._submitting}
@@ -150,7 +150,7 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
               ${this._step.type === "form"
                 ? this.localize("ui.panel.page-authorize.form.next")
                 : this.localize("ui.panel.page-authorize.form.start_over")}
-            </mwc-button>
+            </ha-button>
           </div>
         `;
       case "error":
@@ -163,9 +163,9 @@ class HaAuthFlow extends litLocalizeLiteMixin(LitElement) {
             )}
           </ha-alert>
           <div class="action">
-            <mwc-button raised @click=${this._startOver}>
+            <ha-button raised @click=${this._startOver}>
               ${this.localize("ui.panel.page-authorize.form.start_over")}
-            </mwc-button>
+            </ha-button>
           </div>
         `;
       case "loading":

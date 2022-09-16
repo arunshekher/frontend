@@ -17,6 +17,7 @@ import {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../../components/data-table/ha-data-table";
+import "../../../../components/ha-button";
 import "../../../../components/ha-clickable-list-item";
 import "../../../../components/ha-fab";
 import "../../../../components/ha-icon";
@@ -184,10 +185,10 @@ export class HaConfigLovelaceDashboards extends LitElement {
                 ></ha-icon-button>
               `
             : html`
-                <mwc-button .urlPath=${urlPath} @click=${this._navigate}
+                <ha-button .urlPath=${urlPath} @click=${this._navigate}
                   >${this.hass.localize(
                     "ui.panel.config.lovelace.dashboards.picker.open"
-                  )}</mwc-button
+                  )}</ha-button
                 >
               `,
       };

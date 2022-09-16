@@ -1,6 +1,6 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
+import "../components/ha-button";
 import "../components/ha-icon-button-arrow-prev";
 import "../components/ha-menu-button";
 import { HomeAssistant } from "../types";
@@ -39,9 +39,9 @@ class HassErrorScreen extends LitElement {
       <div class="content">
         <h3>${this.error}</h3>
         <slot>
-          <mwc-button @click=${this._handleBack}>
+          <ha-button @click=${this._handleBack}>
             ${this.hass?.localize("ui.common.back")}
-          </mwc-button>
+          </ha-button>
         </slot>
       </div>
     `;

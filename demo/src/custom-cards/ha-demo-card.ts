@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import { until } from "lit/directives/until";
+import "../../../src/components/ha-button";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-circular-progress";
 import { LovelaceCardConfig } from "../../../src/data/lovelace";
@@ -57,18 +57,18 @@ export class HADemoCard extends LitElement implements LovelaceCard {
                   ""
                 )}
           </div>
-          <mwc-button @click=${this._nextConfig} .disabled=${this._switching}>
+          <ha-button @click=${this._nextConfig} .disabled=${this._switching}>
             ${this.hass.localize("ui.panel.page-demo.cards.demo.next_demo")}
-          </mwc-button>
+          </ha-button>
         </div>
         <div class="content small-hidden">
           ${this.hass.localize("ui.panel.page-demo.cards.demo.introduction")}
         </div>
         <div class="actions small-hidden">
           <a href="https://www.home-assistant.io" target="_blank">
-            <mwc-button>
+            <ha-button>
               ${this.hass.localize("ui.panel.page-demo.cards.demo.learn_more")}
-            </mwc-button>
+            </ha-button>
           </a>
         </div>
       </ha-card>
@@ -123,7 +123,7 @@ export class HADemoCard extends LitElement implements LovelaceCard {
           height: 60px;
         }
 
-        .picker mwc-button {
+        .picker ha-button {
           margin-right: 8px;
         }
 

@@ -30,6 +30,7 @@ import { slugify } from "../../../common/string/slugify";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import { afterNextRender } from "../../../common/util/render-status";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
@@ -185,11 +186,11 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
       >
         ${this.scriptEntityId && !this.narrow
           ? html`
-              <mwc-button @click=${this._showTrace} slot="toolbar-icon">
+              <ha-button @click=${this._showTrace} slot="toolbar-icon">
                 ${this.hass.localize(
                   "ui.panel.config.script.editor.show_trace"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
         <ha-button-menu corner="BOTTOM_START" slot="toolbar-icon">
@@ -389,11 +390,11 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
                 ></ha-yaml-editor>
                 <ha-card outlined>
                   <div class="card-actions">
-                    <mwc-button @click=${this._copyYaml}>
+                    <ha-button @click=${this._copyYaml}>
                       ${this.hass.localize(
                         "ui.panel.config.automation.editor.copy_to_clipboard"
                       )}
-                    </mwc-button>
+                    </ha-button>
                   </div>
                 </ha-card>
               `

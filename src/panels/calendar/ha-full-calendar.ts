@@ -10,7 +10,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 // @ts-ignore
 import listStyle from "@fullcalendar/list/main.css";
-import "@material/mwc-button";
 import { mdiViewAgenda, mdiViewDay, mdiViewModule, mdiViewWeek } from "@mdi/js";
 import {
   css,
@@ -25,6 +24,7 @@ import { property, state } from "lit/decorators";
 import memoize from "memoize-one";
 import { useAmPm } from "../../common/datetime/use_am_pm";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../../components/ha-button";
 import "../../components/ha-button-toggle-group";
 import "../../components/ha-icon-button-prev";
 import "../../components/ha-icon-button-next";
@@ -111,13 +111,13 @@ export class HAFullCalendar extends LitElement {
               ${!this.narrow
                 ? html`
                     <div class="navigation">
-                      <mwc-button
+                      <ha-button
                         outlined
                         class="today"
                         @click=${this._handleToday}
                         >${this.hass.localize(
                           "ui.components.calendar.today"
-                        )}</mwc-button
+                        )}</ha-button
                       >
                       <ha-icon-button-prev
                         .label=${this.hass.localize("ui.common.previous")}
@@ -159,13 +159,13 @@ export class HAFullCalendar extends LitElement {
                       </div>
                     </div>
                     <div class="controls">
-                      <mwc-button
+                      <ha-button
                         outlined
                         class="today"
                         @click=${this._handleToday}
                         >${this.hass.localize(
                           "ui.components.calendar.today"
-                        )}</mwc-button
+                        )}</ha-button
                       >
                       <ha-button-toggle-group
                         .buttons=${viewToggleButtons}

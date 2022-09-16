@@ -1,7 +1,7 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-markdown";
 import { ignoreRepairsIssue, RepairsIssue } from "../../../data/repairs";
@@ -106,21 +106,21 @@ class DialogRepairsIssue extends LitElement {
                 slot="primaryAction"
                 rel="noopener noreferrer"
               >
-                <mwc-button
+                <ha-button
                   .label=${this.hass!.localize(
                     "ui.panel.config.repairs.dialog.learn"
                   )}
-                ></mwc-button>
+                ></ha-button>
               </a>
             `
           : ""}
-        <mwc-button
+        <ha-button
           slot="secondaryAction"
           .label=${this._issue!.ignored
             ? this.hass!.localize("ui.panel.config.repairs.dialog.unignore")
             : this.hass!.localize("ui.panel.config.repairs.dialog.ignore")}
           @click=${this._ignoreIssue}
-        ></mwc-button>
+        ></ha-button>
       </ha-dialog>
     `;
   }

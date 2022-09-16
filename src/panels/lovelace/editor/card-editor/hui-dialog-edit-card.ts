@@ -12,6 +12,7 @@ import { customElement, property, query, state } from "lit/decorators";
 import type { HASSDomEvent } from "../../../../common/dom/fire_event";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
+import "../../../../components/ha-button";
 import "../../../../components/ha-circular-progress";
 import "../../../../components/ha-dialog";
 import "../../../../components/ha-header-bar";
@@ -228,7 +229,7 @@ export class HuiDialogEditCard
         </div>
         ${this._cardConfig !== undefined
           ? html`
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 @click=${this._toggleMode}
                 .disabled=${!this._guiModeAvailable}
@@ -239,16 +240,16 @@ export class HuiDialogEditCard
                     ? "ui.panel.lovelace.editor.edit_card.show_code_editor"
                     : "ui.panel.lovelace.editor.edit_card.show_visual_editor"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
         <div slot="primaryAction" @click=${this._save}>
-          <mwc-button @click=${this._cancel} dialogInitialFocus>
+          <ha-button @click=${this._cancel} dialogInitialFocus>
             ${this.hass!.localize("ui.common.cancel")}
-          </mwc-button>
+          </ha-button>
           ${this._cardConfig !== undefined && this._dirty
             ? html`
-                <mwc-button
+                <ha-button
                   ?disabled=${!this._canSave || this._saving}
                   @click=${this._save}
                 >
@@ -261,7 +262,7 @@ export class HuiDialogEditCard
                         ></ha-circular-progress>
                       `
                     : this.hass!.localize("ui.common.save")}
-                </mwc-button>
+                </ha-button>
               `
             : ``}
         </div>

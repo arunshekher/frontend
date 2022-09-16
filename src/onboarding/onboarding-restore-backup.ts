@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { showBackupUploadDialog } from "../../hassio/src/dialogs/backup/show-dialog-backup-upload";

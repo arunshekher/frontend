@@ -212,7 +212,7 @@ export class HaMediaSelector extends LitElement {
         display: block;
         margin-bottom: 16px;
       }
-      mwc-button {
+      ha-button {
         margin-top: 8px;
       }
       ha-alert {

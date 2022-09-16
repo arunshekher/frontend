@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import {
@@ -10,6 +9,7 @@ import {
 import { navigate } from "../../../../../common/navigate";
 import "../../../../../components/search-input";
 import "../../../../../components/device/ha-device-picker";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-button-menu";
 import "../../../../../components/ha-checkbox";
 import type { HaCheckbox } from "../../../../../components/ha-checkbox";
@@ -205,11 +205,11 @@ export class ZHANetworkVisualizationPage extends LitElement {
               >
               </ha-checkbox
             ></ha-formfield>
-            <mwc-button @click=${this._refreshTopology}>
+            <ha-button @click=${this._refreshTopology}>
               ${this.hass!.localize(
                 "ui.panel.config.zha.visualization.refresh_topology"
               )}
-            </mwc-button>
+            </ha-button>
           </div>
         </div>
         <div id="visualization"></div>

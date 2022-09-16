@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import "@polymer/app-layout/app-drawer/app-drawer";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { computeDomain } from "../../common/entity/compute_domain";
+import "../../components/ha-button";
 import "../../components/ha-icon-button-prev";
 import { subscribeNotifications } from "../../data/persistent_notification";
 import { EventsMixin } from "../../mixins/events-mixin";
@@ -78,9 +78,9 @@ export class HuiNotificationDrawer extends EventsMixin(
           </dom-repeat>
           <template is="dom-if" if="[[_moreThanOne(notifications)]]">
             <div class="notification-actions">
-              <mwc-button raised on-click="_dismissAll">
+              <ha-button raised on-click="_dismissAll">
                 [[localize('ui.notification_drawer.dismiss_all')]]
-              </mwc-button>
+              </ha-button>
             </div>
           </template>
         </template>

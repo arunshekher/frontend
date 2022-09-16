@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import {
   mdiCheckCircle,
   mdiChip,
@@ -32,6 +31,7 @@ import { navigate } from "../../../../src/common/navigate";
 import "../../../../src/components/buttons/ha-call-api-button";
 import "../../../../src/components/buttons/ha-progress-button";
 import "../../../../src/components/ha-alert";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-card";
 import "../../../../src/components/ha-chip";
 import "../../../../src/components/ha-chip-set";
@@ -160,14 +160,14 @@ class HassioAddonInfo extends LitElement {
               ${this.supervisor.localize(
                 "addon.dashboard.protection_mode.content"
               )}
-              <mwc-button
+              <ha-button
                 slot="action"
                 .label=${this.supervisor.localize(
                   "addon.dashboard.protection_mode.enable"
                 )}
                 @click=${this._protectionToggled}
               >
-              </mwc-button>
+              </ha-button>
             </ha-alert>
           `
         : ""}
@@ -614,21 +614,21 @@ class HassioAddonInfo extends LitElement {
                           target="_blank"
                           rel="noopener"
                         >
-                          <mwc-button>
+                          <ha-button>
                             ${this.supervisor.localize(
                               "addon.dashboard.open_web_ui"
                             )}
-                          </mwc-button>
+                          </ha-button>
                         </a>
                       `
                     : ""}
                   ${this._computeShowIngressUI
                     ? html`
-                        <mwc-button @click=${this._openIngress}>
+                        <ha-button @click=${this._openIngress}>
                           ${this.supervisor.localize(
                             "addon.dashboard.open_web_ui"
                           )}
-                        </mwc-button>
+                        </ha-button>
                       `
                     : ""}
                   <ha-progress-button
@@ -1077,7 +1077,7 @@ class HassioAddonInfo extends LitElement {
         ha-card.warning .card-content {
           color: white;
         }
-        ha-card.warning mwc-button {
+        ha-card.warning ha-button {
           --mdc-theme-primary: white !important;
         }
         .warning {
@@ -1124,7 +1124,7 @@ class HassioAddonInfo extends LitElement {
           font-weight: 500;
           color: var(--primary-color);
         }
-        protection-enable mwc-button {
+        protection-enable ha-button {
           --mdc-theme-primary: white;
         }
         .description a {
@@ -1193,7 +1193,7 @@ class HassioAddonInfo extends LitElement {
           align-self: end;
         }
 
-        ha-alert mwc-button {
+        ha-alert ha-button {
           --mdc-theme-primary: var(--primary-text-color);
         }
         a {

@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/ha-area-picker";
+import "../../components/ha-button";
 import { DataEntryFlowStepCreateEntry } from "../../data/data_entry_flow";
 import {
   computeDeviceName,
@@ -72,10 +72,10 @@ class StepFlowCreateEntry extends LitElement {
             `}
       </div>
       <div class="buttons">
-        <mwc-button @click=${this._flowDone}
+        <ha-button @click=${this._flowDone}
           >${localize(
             "ui.panel.config.integrations.config_flow.finish"
-          )}</mwc-button
+          )}</ha-button
         >
       </div>
     `;

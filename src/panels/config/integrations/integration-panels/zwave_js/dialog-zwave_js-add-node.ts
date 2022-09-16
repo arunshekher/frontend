@@ -1,10 +1,10 @@
-import "@material/mwc-button/mwc-button";
 import { mdiAlertCircle, mdiCheckCircle, mdiQrcodeScan } from "@mdi/js";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import "../../../../../components/ha-alert";
+import "../../../../../components/ha-button";
 import { HaCheckbox } from "../../../../../components/ha-checkbox";
 import "../../../../../components/ha-circular-progress";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
@@ -170,12 +170,12 @@ class DialogZWaveJSAddNode extends LitElement {
                   </ha-radio>
                 </ha-formfield>
               </div>
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 @click=${this._startManualInclusion}
               >
                 Search device
-              </mwc-button>`
+              </ha-button>`
           : this._status === "qr_scan"
           ? html`${this._error
                 ? html`<ha-alert alert-type="error">${this._error}</ha-alert>`
@@ -184,9 +184,9 @@ class DialogZWaveJSAddNode extends LitElement {
                 .localize=${this.hass.localize}
                 @qr-code-scanned=${this._qrCodeScanned}
               ></ha-qr-scanner>
-              <mwc-button slot="secondaryAction" @click=${this._startOver}>
+              <ha-button slot="secondaryAction" @click=${this._startOver}>
                 ${this.hass.localize("ui.panel.config.zwave_js.common.back")}
-              </mwc-button>`
+              </ha-button>`
           : this._status === "validate_dsk_enter_pin"
           ? html`
                 <p>
@@ -209,12 +209,12 @@ class DialogZWaveJSAddNode extends LitElement {
                 ></ha-textfield>
                 ${this._dsk}
                 </div>
-                <mwc-button
+                <ha-button
                   slot="primaryAction"
                   @click=${this._validateDskAndEnterPin}
                 >
                   Submit
-                </mwc-button>
+                </ha-button>
               </div>
             `
           : this._status === "grant_security_classes"
@@ -251,13 +251,13 @@ class DialogZWaveJSAddNode extends LitElement {
                     </ha-formfield>`
                   )}
               </div>
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .disabled=${!this._securityClasses.length}
                 @click=${this._grantSecurityClasses}
               >
                 Submit
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "timed_out"
           ? html`
@@ -266,9 +266,9 @@ class DialogZWaveJSAddNode extends LitElement {
                 We have not found any device in inclusion mode. Make sure the
                 device is active and in inclusion mode.
               </p>
-              <mwc-button slot="primaryAction" @click=${this._startOver}>
+              <ha-button slot="primaryAction" @click=${this._startOver}>
                 Retry
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "started_specific"
           ? html`<h3>
@@ -322,18 +322,18 @@ class DialogZWaveJSAddNode extends LitElement {
                         )}
                       </p>
                       <p>
-                        <mwc-button @click=${this._scanQRCode}>
+                        <ha-button @click=${this._scanQRCode}>
                           ${this.hass.localize(
                             "ui.panel.config.zwave_js.add_node.scan_qr_code"
                           )}
-                        </mwc-button>
+                        </ha-button>
                       </p>
                     </div>`
                   : ""}
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.cancel")}
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "interviewing"
           ? html`
@@ -364,9 +364,9 @@ class DialogZWaveJSAddNode extends LitElement {
                     : ""}
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "failed"
           ? html`
@@ -400,9 +400,9 @@ class DialogZWaveJSAddNode extends LitElement {
                     : ""}
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "finished"
           ? html`
@@ -427,11 +427,11 @@ class DialogZWaveJSAddNode extends LitElement {
                       </ha-alert>`
                     : ""}
                   <a href=${`/config/devices/device/${this._device!.id}`}>
-                    <mwc-button>
+                    <ha-button>
                       ${this.hass.localize(
                         "ui.panel.config.zwave_js.add_node.view_device"
                       )}
-                    </mwc-button>
+                    </ha-button>
                   </a>
                   ${this._stages
                     ? html` <div class="stages">
@@ -450,9 +450,9 @@ class DialogZWaveJSAddNode extends LitElement {
                     : ""}
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : this._status === "provisioned"
           ? html` <div class="flex-container">
@@ -468,9 +468,9 @@ class DialogZWaveJSAddNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>`
+              </ha-button>`
           : ""}
       </ha-dialog>
     `;

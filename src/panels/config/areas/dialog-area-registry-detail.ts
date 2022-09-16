@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-textfield";
 import "../../../components/ha-picture-upload";
 import type { HaPictureUpload } from "../../../components/ha-picture-upload";
@@ -104,17 +104,17 @@ class DialogAreaDetail extends LitElement {
         </div>
         ${entry
           ? html`
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 class="warning"
                 @click=${this._deleteEntry}
                 .disabled=${this._submitting}
               >
                 ${this.hass.localize("ui.panel.config.areas.editor.delete")}
-              </mwc-button>
+              </ha-button>
             `
           : html``}
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._updateEntry}
           .disabled=${nameInvalid || this._submitting}
@@ -122,7 +122,7 @@ class DialogAreaDetail extends LitElement {
           ${entry
             ? this.hass.localize("ui.panel.config.areas.editor.update")
             : this.hass.localize("ui.panel.config.areas.editor.create")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-switch";
 import type { HaSwitch } from "../../../../components/ha-switch";
@@ -104,22 +104,22 @@ export class CloudAlexaPref extends LitElement {
         <div class="card-actions">
           ${alexa_registered
             ? html`
-                <mwc-button
+                <ha-button
                   @click=${this._handleSync}
                   .disabled=${!alexa_enabled || this._syncing}
                 >
                   ${this.hass!.localize(
                     "ui.panel.config.cloud.account.alexa.sync_entities"
                   )}
-                </mwc-button>
+                </ha-button>
               `
             : ""}
           <div class="spacer"></div>
           <a href="/config/cloud/alexa">
-            <mwc-button
+            <ha-button
               >${this.hass!.localize(
                 "ui.panel.config.cloud.account.alexa.manage_entities"
-              )}</mwc-button
+              )}</ha-button
             >
           </a>
         </div>

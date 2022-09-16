@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import "../../../../components/ha-alert";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import type { HaSwitch } from "../../../../components/ha-switch";
 import "../../../../components/ha-textfield";
@@ -154,23 +154,23 @@ export class CloudGooglePref extends LitElement {
         <div class="card-actions">
           ${google_registered
             ? html`
-                <mwc-button
+                <ha-button
                   @click=${this._handleSync}
                   .disabled=${!google_enabled || this._syncing}
                 >
                   ${this.hass.localize(
                     "ui.panel.config.cloud.account.google.sync_entities"
                   )}
-                </mwc-button>
+                </ha-button>
               `
             : ""}
           <div class="spacer"></div>
           <a href="/config/cloud/google-assistant">
-            <mwc-button>
+            <ha-button>
               ${this.hass.localize(
                 "ui.panel.config.cloud.account.google.manage_entities"
               )}
-            </mwc-button>
+            </ha-button>
           </a>
         </div>
       </ha-card>

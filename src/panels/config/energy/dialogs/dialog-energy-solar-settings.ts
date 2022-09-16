@@ -11,8 +11,8 @@ import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import { EnergySettingsSolarDialogParams } from "./show-dialogs-energy";
-import "@material/mwc-button/mwc-button";
 import "../../../../components/entity/ha-statistic-picker";
+import "../../../../components/ha-button";
 import "../../../../components/ha-radio";
 import "../../../../components/ha-checkbox";
 import type { HaCheckbox } from "../../../../components/ha-checkbox";
@@ -152,24 +152,24 @@ export class DialogEnergySolarSettings
                   </ha-checkbox>
                 </ha-formfield>`
               )}
-              <mwc-button @click=${this._addForecast}>
+              <ha-button @click=${this._addForecast}>
                 ${this.hass.localize(
                   "ui.panel.config.energy.solar.dialog.add_forecast"
                 )}
-              </mwc-button>
+              </ha-button>
             </div>`
           : ""}
 
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._save}
           .disabled=${!this._source.stat_energy_from}
           slot="primaryAction"
         >
           ${this.hass.localize("ui.common.save")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }
@@ -263,7 +263,7 @@ export class DialogEnergySolarSettings
         .forecast-options {
           padding-left: 32px;
         }
-        .forecast-options mwc-button {
+        .forecast-options ha-button {
           padding-left: 8px;
         }
       `,

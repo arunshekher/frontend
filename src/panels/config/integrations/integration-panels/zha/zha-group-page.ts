@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import { mdiDelete } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, PropertyValues } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { HASSDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
 import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-circular-progress";
 import "../../../../../components/ha-icon-button";
 import {
@@ -156,7 +156,7 @@ export class ZHAGroupPage extends LitElement {
                 </zha-device-endpoint-data-table>
 
                 <div class="buttons">
-                  <mwc-button
+                  <ha-button
                     .disabled=${!this._selectedDevicesToRemove.length ||
                     this._processingRemove}
                     @click=${this._removeMembersFromGroup}
@@ -170,7 +170,7 @@ export class ZHAGroupPage extends LitElement {
                     ></ha-circular-progress>
                     ${this.hass!.localize(
                       "ui.panel.config.zha.groups.remove_members"
-                    )}</mwc-button
+                    )}</ha-button
                   >
                 </div>
               `
@@ -191,7 +191,7 @@ export class ZHAGroupPage extends LitElement {
           </zha-device-endpoint-data-table>
 
           <div class="buttons">
-            <mwc-button
+            <ha-button
               .disabled=${!this._selectedDevicesToAdd.length ||
               this._processingAdd}
               @click=${this._addMembersToGroup}
@@ -206,7 +206,7 @@ export class ZHAGroupPage extends LitElement {
                 : ""}
               ${this.hass!.localize(
                 "ui.panel.config.zha.groups.add_members"
-              )}</mwc-button
+              )}</ha-button
             >
           </div>
         </ha-config-section>

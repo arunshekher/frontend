@@ -2,13 +2,13 @@ import { mdiDevices } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-dialog";
 import { DeviceConsumptionEnergyPreference } from "../../../../data/energy";
 import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import { EnergySettingsDeviceDialogParams } from "./show-dialogs-energy";
-import "@material/mwc-button/mwc-button";
 import "../../../../components/entity/ha-statistic-picker";
 import "../../../../components/ha-radio";
 import "../../../../components/ha-formfield";
@@ -78,16 +78,16 @@ export class DialogEnergyDeviceSettings
           dialogInitialFocus
         ></ha-statistic-picker>
 
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._save}
           .disabled=${!this._device}
           slot="primaryAction"
         >
           ${this.hass.localize("ui.common.save")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

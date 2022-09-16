@@ -1,5 +1,4 @@
 /* eslint-disable lit/prefer-static-styles */
-import "@material/mwc-button/mwc-button";
 import { mdiMicrophone } from "@mdi/js";
 import {
   css,
@@ -16,6 +15,7 @@ import { SpeechRecognition } from "../../common/dom/speech-recognition";
 import { uid } from "../../common/util/uid";
 import "../../components/ha-dialog";
 import type { HaDialog } from "../../components/ha-dialog";
+import "../../components/ha-button";
 import "../../components/ha-icon-button";
 import "../../components/ha-textfield";
 import type { HaTextField } from "../../components/ha-textfield";
@@ -95,12 +95,12 @@ export class HaVoiceCommandDialog extends LitElement {
                       href=${this._agentInfo.onboarding.url}
                       target="_blank"
                       rel="noreferrer"
-                      ><mwc-button unelevated
-                        >${this.hass.localize("ui.common.yes")}!</mwc-button
+                      ><ha-button unelevated
+                        >${this.hass.localize("ui.common.yes")}!</ha-button
                       ></a
                     >
-                    <mwc-button outlined
-                      >${this.hass.localize("ui.common.no")}</mwc-button
+                    <ha-button outlined
+                      >${this.hass.localize("ui.common.no")}</ha-button
                     >
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export class HaVoiceCommandDialog extends LitElement {
         a.button {
           text-decoration: none;
         }
-        a.button > mwc-button {
+        a.button > ha-button {
           width: 100%;
         }
         .onboarding {

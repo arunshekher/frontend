@@ -20,6 +20,7 @@ import { navigate } from "../../../common/navigate";
 import { extractSearchParam } from "../../../common/url/search-params";
 import { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
 import "../../../components/entity/ha-entity-toggle";
+import "../../../components/ha-button";
 import "../../../components/ha-fab";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-svg-icon";
@@ -162,14 +163,11 @@ class HaBlueprintOverview extends LitElement {
                 .path=${mdiRobot}
               >
               </ha-icon-button>`
-            : html`<mwc-button
-                .blueprint=${blueprint}
-                @click=${this._createNew}
-              >
+            : html`<ha-button .blueprint=${blueprint} @click=${this._createNew}>
                 ${this.hass.localize(
                   `ui.panel.config.blueprint.overview.create_${blueprint.domain}`
                 )}
-              </mwc-button>`,
+              </ha-button>`,
       },
       share: {
         title: "",
@@ -243,10 +241,10 @@ class HaBlueprintOverview extends LitElement {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <mwc-button
+            <ha-button
               >${this.hass.localize(
                 "ui.panel.config.blueprint.overview.discover_more"
-              )}</mwc-button
+              )}</ha-button
             >
           </a>
         </div>`}

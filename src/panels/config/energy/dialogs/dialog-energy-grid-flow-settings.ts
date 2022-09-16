@@ -13,8 +13,8 @@ import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import { EnergySettingsGridFlowDialogParams } from "./show-dialogs-energy";
-import "@material/mwc-button/mwc-button";
 import "../../../../components/entity/ha-statistic-picker";
+import "../../../../components/ha-button";
 import "../../../../components/ha-radio";
 import "../../../../components/ha-formfield";
 import type { HaRadio } from "../../../../components/ha-radio";
@@ -207,10 +207,10 @@ export class DialogEnergyGridFlowSettings
             </ha-textfield>`
           : ""}
 
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._save}
           .disabled=${!this._source[
             this._params!.direction === "from"
@@ -220,7 +220,7 @@ export class DialogEnergyGridFlowSettings
           slot="primaryAction"
         >
           ${this.hass.localize("ui.common.save")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

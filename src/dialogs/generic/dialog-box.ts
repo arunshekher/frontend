@@ -1,10 +1,10 @@
-import "@material/mwc-button/mwc-button";
 import { mdiAlertOutline } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { ifDefined } from "lit/directives/if-defined";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../../components/ha-button";
 import "../../components/ha-dialog";
 import "../../components/ha-svg-icon";
 import "../../components/ha-switch";
@@ -87,13 +87,13 @@ class DialogBox extends LitElement {
         </div>
         ${confirmPrompt &&
         html`
-          <mwc-button @click=${this._dismiss} slot="secondaryAction">
+          <ha-button @click=${this._dismiss} slot="secondaryAction">
             ${this._params.dismissText
               ? this._params.dismissText
               : this.hass.localize("ui.dialogs.generic.cancel")}
-          </mwc-button>
+          </ha-button>
         `}
-        <mwc-button
+        <ha-button
           @click=${this._confirm}
           ?dialogInitialFocus=${!this._params.prompt}
           slot="primaryAction"
@@ -104,7 +104,7 @@ class DialogBox extends LitElement {
           ${this._params.confirmText
             ? this._params.confirmText
             : this.hass.localize("ui.dialogs.generic.ok")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

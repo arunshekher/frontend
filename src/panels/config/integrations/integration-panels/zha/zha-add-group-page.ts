@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
 import type { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, PropertyValues } from "lit";
@@ -6,6 +5,7 @@ import { customElement, property, state, query } from "lit/decorators";
 import type { HASSDomEvent } from "../../../../../common/dom/fire_event";
 import { navigate } from "../../../../../common/navigate";
 import type { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-circular-progress";
 import {
   addGroup,
@@ -91,7 +91,7 @@ export class ZHAAddGroupPage extends LitElement {
           </zha-device-endpoint-data-table>
 
           <div class="buttons">
-            <mwc-button
+            <ha-button
               .disabled=${!this._groupName ||
               this._groupName === "" ||
               this._processingAdd}
@@ -109,7 +109,7 @@ export class ZHAAddGroupPage extends LitElement {
                 : ""}
               ${this.hass!.localize(
                 "ui.panel.config.zha.groups.create"
-              )}</mwc-button
+              )}</ha-button
             >
           </div>
         </ha-config-section>

@@ -3,6 +3,7 @@ import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { ensureArray } from "../../../../../common/ensure-array";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-icon-button";
 import { Condition } from "../../../../../data/automation";
 import { Action, ChooseAction } from "../../../../../data/script";
@@ -73,7 +74,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
           </div>
         </ha-card>`
       )}
-      <mwc-button
+      <ha-button
         outlined
         .label=${this.hass.localize(
           "ui.panel.config.automation.editor.actions.type.choose.add_option"
@@ -81,7 +82,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
         @click=${this._addOption}
       >
         <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
-      </mwc-button>
+      </ha-button>
       ${this._showDefault || action.default
         ? html`
             <h2>
@@ -175,7 +176,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
         ha-card {
           margin: 16px 0;
         }
-        .add-card mwc-button {
+        .add-card ha-button {
           display: block;
           text-align: center;
         }

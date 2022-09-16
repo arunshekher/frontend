@@ -1,6 +1,6 @@
-import "@material/mwc-button/mwc-button";
 import { LitElement, TemplateResult, html, CSSResultGroup } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../../components/ha-button";
 import "../../../components/ha-dialog";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { haStyle, haStyleDialog } from "../../../resources/styles";
@@ -81,14 +81,14 @@ export class DialogStatisticsFixUnitsChanged extends LitElement {
           ></ha-radio>
         </ha-formfield>
 
-        <mwc-button slot="primaryAction" @click=${this._fixIssue}>
+        <ha-button slot="primaryAction" @click=${this._fixIssue}>
           ${this.hass.localize(
             "ui.panel.developer-tools.tabs.statistics.fix_issue.fix"
           )}
-        </mwc-button>
-        <mwc-button slot="secondaryAction" @click=${this.closeDialog}>
+        </ha-button>
+        <ha-button slot="secondaryAction" @click=${this.closeDialog}>
           ${this.hass.localize("ui.common.close")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

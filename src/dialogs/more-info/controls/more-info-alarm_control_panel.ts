@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import type { HassEntity } from "home-assistant-js-websocket";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
+import "../../../components/ha-button";
 import "../../../components/ha-textfield";
 import type { HaTextField } from "../../../components/ha-textfield";
 import {
@@ -50,9 +50,9 @@ export class MoreInfoAlarmControlPanel extends LitElement {
             <div id="keypad">
               ${BUTTONS.map((value) =>
                 value === ""
-                  ? html`<mwc-button disabled></mwc-button>`
+                  ? html`<ha-button disabled></ha-button>`
                   : html`
-                      <mwc-button
+                      <ha-button
                         .value=${value}
                         @click=${this._handlePadClick}
                         outlined
@@ -65,7 +65,7 @@ export class MoreInfoAlarmControlPanel extends LitElement {
                               `ui.card.alarm_control_panel.clear_code`
                             )
                           : value}
-                      </mwc-button>
+                      </ha-button>
                     `
               )}
             </div>
@@ -76,7 +76,7 @@ export class MoreInfoAlarmControlPanel extends LitElement {
           : DISARM_ACTIONS
         ).map(
           (stateAction) => html`
-            <mwc-button
+            <ha-button
               .action=${stateAction}
               @click=${this._handleActionClick}
               outlined
@@ -84,7 +84,7 @@ export class MoreInfoAlarmControlPanel extends LitElement {
               ${this.hass!.localize(
                 `ui.card.alarm_control_panel.${stateAction}`
               )}
-            </mwc-button>
+            </ha-button>
           `
         )}
       </div>
@@ -126,7 +126,7 @@ export class MoreInfoAlarmControlPanel extends LitElement {
       max-width: 300px;
     }
 
-    #keypad mwc-button {
+    #keypad ha-button {
       padding: 8px;
       width: 30%;
       box-sizing: border-box;
@@ -139,15 +139,15 @@ export class MoreInfoAlarmControlPanel extends LitElement {
       justify-content: center;
     }
 
-    .actions mwc-button {
+    .actions ha-button {
       margin: 0 4px 4px;
     }
 
-    mwc-button#disarm {
+    ha-button#disarm {
       color: var(--error-color);
     }
 
-    mwc-button.numberkey {
+    ha-button.numberkey {
       --mdc-typography-button-font-size: var(--keypad-font-size, 0.875rem);
     }
 

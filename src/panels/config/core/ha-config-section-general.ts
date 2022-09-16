@@ -9,6 +9,7 @@ import { navigate } from "../../../common/navigate";
 import "../../../components/buttons/ha-progress-button";
 import type { HaProgressButton } from "../../../components/buttons/ha-progress-button";
 import { currencies } from "../../../components/currency-datalist";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-formfield";
 import "../../../components/ha-radio";
@@ -218,8 +219,8 @@ class HaConfigSectionGeneral extends LitElement {
                         "ui.panel.config.core.section.core.core_config.edit_location_description"
                       )}
                     </div>
-                    <mwc-button @click=${this._editLocation}
-                      >${this.hass.localize("ui.common.edit")}</mwc-button
+                    <ha-button @click=${this._editLocation}
+                      >${this.hass.localize("ui.common.edit")}</ha-button
                     >
                   </ha-settings-row>
                 `}

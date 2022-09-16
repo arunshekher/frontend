@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import type { RequestSelectedDetail } from "@material/mwc-list/mwc-list-item";
 import {
@@ -26,6 +25,7 @@ import { customElement, property } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import memoizeOne from "memoize-one";
 import { shouldHandleRequestSelectedEvent } from "../../../common/mwc/handle-request-selected-event";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-card";
 import "../../../components/ha-icon-button";
@@ -325,27 +325,27 @@ export class HaIntegrationCard extends LitElement {
       <div class="actions">
         <div>
           ${item.disabled_by === "user"
-            ? html`<mwc-button unelevated @click=${this._handleEnable}>
+            ? html`<ha-button unelevated @click=${this._handleEnable}>
                 ${this.hass.localize("ui.common.enable")}
-              </mwc-button>`
+              </ha-button>`
             : item.domain in integrationsWithPanel
             ? html`<a
                 href=${`${integrationsWithPanel[item.domain]}?config_entry=${
                   item.entry_id
                 }`}
-                ><mwc-button>
+                ><ha-button>
                   ${this.hass.localize(
                     "ui.panel.config.integrations.config_entry.configure"
                   )}
-                </mwc-button></a
+                </ha-button></a
               >`
             : item.supports_options
             ? html`
-                <mwc-button @click=${this._showOptions}>
+                <ha-button @click=${this._showOptions}>
                   ${this.hass.localize(
                     "ui.panel.config.integrations.config_entry.configure"
                   )}
-                </mwc-button>
+                </ha-button>
               `
             : ""}
         </div>

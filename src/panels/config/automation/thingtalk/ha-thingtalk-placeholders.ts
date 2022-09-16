@@ -14,6 +14,7 @@ import { computeDomain } from "../../../../common/entity/compute_domain";
 import { applyPatch, getPath } from "../../../../common/util/patch";
 import "../../../../components/device/ha-area-devices-picker";
 import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/ha-button";
 import {
   AreaRegistryEntry,
   subscribeAreaRegistry,
@@ -239,16 +240,16 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
               `
           )}
         </div>
-        <mwc-button @click=${this.skip} slot="secondaryAction">
+        <ha-button @click=${this.skip} slot="secondaryAction">
           ${this.hass.localize(`ui.common.skip`)}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._done}
           .disabled=${!this._isDone}
           slot="primaryAction"
         >
           ${this.hass.localize(`ui.panel.config.automation.thingtalk.create`)}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }
@@ -464,7 +465,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
         ha-dialog {
           max-width: 500px;
         }
-        mwc-button.left {
+        ha-button.left {
           margin-right: auto;
         }
         h3 {

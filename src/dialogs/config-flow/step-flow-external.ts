@@ -1,6 +1,6 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
+import "../../components/ha-button";
 import { DataEntryFlowStepExternal } from "../../data/data_entry_flow";
 import { HomeAssistant } from "../../types";
 import { FlowConfig } from "./show-dialog-data-entry-flow";
@@ -23,11 +23,11 @@ class StepFlowExternal extends LitElement {
         ${this.flowConfig.renderExternalStepDescription(this.hass, this.step)}
         <div class="open-button">
           <a href=${this.step.url} target="_blank" rel="noreferrer">
-            <mwc-button raised>
+            <ha-button raised>
               ${localize(
                 "ui.panel.config.integrations.config_flow.external_step.open_site"
               )}
-            </mwc-button>
+            </ha-button>
           </a>
         </div>
       </div>

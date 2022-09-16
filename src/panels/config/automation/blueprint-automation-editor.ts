@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/ha-blueprint-picker";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-markdown";
@@ -56,11 +56,11 @@ export class HaBlueprintAutomationEditor extends LitElement {
               ${this.hass.localize(
                 "ui.panel.config.automation.editor.disabled"
               )}
-              <mwc-button slot="action" @click=${this._enable}>
+              <ha-button slot="action" @click=${this._enable}>
                 ${this.hass.localize(
                   "ui.panel.config.automation.editor.enable"
                 )}
-              </mwc-button>
+              </ha-button>
             </ha-alert>
           `
         : ""}

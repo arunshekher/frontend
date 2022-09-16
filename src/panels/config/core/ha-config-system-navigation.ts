@@ -3,6 +3,7 @@ import { customElement, property, state } from "lit/decorators";
 import { canShowPage } from "../../../common/config/can_show_page";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { relativeTime } from "../../../common/datetime/relative_time";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-navigation-list";
 import "../../../components/ha-tip";
@@ -120,13 +121,13 @@ class HaConfigSystemNavigation extends LitElement {
         back-path="/config"
         .header=${this.hass.localize("ui.panel.config.dashboard.system.main")}
       >
-        <mwc-button
+        <ha-button
           slot="toolbar-icon"
           .label=${this.hass.localize(
             "ui.panel.config.system_dashboard.restart_homeassistant_short"
           )}
           @click=${this._restart}
-        ></mwc-button>
+        ></ha-button>
         <ha-config-section
           .narrow=${this.narrow}
           .isWide=${this.isWide}

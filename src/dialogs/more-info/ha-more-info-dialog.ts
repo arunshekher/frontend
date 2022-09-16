@@ -1,5 +1,4 @@
 import type { HassEntity } from "home-assistant-js-websocket";
-import "@material/mwc-button";
 import "@material/mwc-tab";
 import "@material/mwc-tab-bar";
 import { mdiClose, mdiPencil } from "@mdi/js";

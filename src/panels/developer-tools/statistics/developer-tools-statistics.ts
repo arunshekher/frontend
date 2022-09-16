@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { mdiSlopeUphill } from "@mdi/js";
 import { HassEntity, UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement } from "lit";
@@ -8,6 +7,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { computeStateName } from "../../../common/entity/compute_state_name";
 import "../../../components/data-table/ha-data-table";
 import type { DataTableColumnContainer } from "../../../components/data-table/ha-data-table";
+import "../../../components/ha-button";
 import { subscribeEntityRegistry } from "../../../data/entity_registry";
 import {
   clearStatistics,
@@ -108,11 +108,11 @@ class HaPanelDevStatistics extends SubscribeMixin(LitElement) {
         ),
         template: (_, data: any) =>
           html`${data.issues
-            ? html`<mwc-button @click=${this._fixIssue} .data=${data.issues}>
+            ? html`<ha-button @click=${this._fixIssue} .data=${data.issues}>
                 ${localize(
                   "ui.panel.developer-tools.tabs.statistics.fix_issue.fix"
                 )}
-              </mwc-button>`
+              </ha-button>`
             : "—"}`,
         width: "113px",
       },

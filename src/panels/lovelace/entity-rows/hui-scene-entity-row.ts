@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -9,6 +8,7 @@ import {
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "../../../components/entity/ha-entity-toggle";
+import "../../../components/ha-button";
 import { UNAVAILABLE } from "../../../data/entity";
 import { activateScene } from "../../../data/scene";
 import { HomeAssistant } from "../../../types";
@@ -51,21 +51,21 @@ class HuiSceneEntityRow extends LitElement implements LovelaceRow {
 
     return html`
       <hui-generic-entity-row .hass=${this.hass} .config=${this._config}>
-        <mwc-button
+        <ha-button
           @click=${this._callService}
           .disabled=${stateObj.state === UNAVAILABLE}
           class="text-content"
         >
           ${this._config.action_name ||
           this.hass!.localize("ui.card.scene.activate")}
-        </mwc-button>
+        </ha-button>
       </hui-generic-entity-row>
     `;
   }
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button {
+      ha-button {
         margin-right: -0.57em;
       }
       :host {

@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
+import "../../components/ha-button";
 import "../../components/ha-card";
 import "../../components/ha-menu-button";
 import { isExternal } from "../../data/external";
@@ -119,11 +119,11 @@ class HaPanelProfile extends LitElement {
                   "ui.panel.profile.customize_sidebar.description"
                 )}
               </span>
-              <mwc-button @click=${this._customizeSidebar}>
+              <ha-button @click=${this._customizeSidebar}>
                 ${this.hass.localize(
                   "ui.panel.profile.customize_sidebar.button"
                 )}
-              </mwc-button>
+              </ha-button>
             </ha-settings-row>
             ${this.hass.dockedSidebar !== "auto" || !this.narrow
               ? html`
@@ -167,9 +167,9 @@ class HaPanelProfile extends LitElement {
               .hass=${this.hass}
             ></ha-enable-shortcuts-row>
             <div class="card-actions">
-              <mwc-button class="warning" @click=${this._handleLogOut}>
+              <ha-button class="warning" @click=${this._handleLogOut}>
                 ${this.hass.localize("ui.panel.profile.logout")}
-              </mwc-button>
+              </ha-button>
             </div>
           </ha-card>
 

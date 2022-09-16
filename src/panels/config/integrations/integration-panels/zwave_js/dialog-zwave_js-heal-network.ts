@@ -1,10 +1,10 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-linear-progress/mwc-linear-progress";
 import { mdiStethoscope, mdiCheckCircle, mdiCloseCircle } from "@mdi/js";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../../common/dom/fire_event";
+import "../../../../../components/ha-button";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
 import {
   fetchZwaveNetworkStatus,
@@ -86,11 +86,11 @@ class DialogZWaveJSHealNetwork extends LitElement {
                   )}
                 </em>
               </p>
-              <mwc-button slot="primaryAction" @click=${this._startHeal}>
+              <ha-button slot="primaryAction" @click=${this._startHeal}>
                 ${this.hass.localize(
                   "ui.panel.config.zwave_js.heal_network.start_heal"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "started"
@@ -114,14 +114,14 @@ class DialogZWaveJSHealNetwork extends LitElement {
                     <mwc-linear-progress indeterminate> </mwc-linear-progress>
                   `
                 : ""}
-              <mwc-button slot="secondaryAction" @click=${this._stopHeal}>
+              <ha-button slot="secondaryAction" @click=${this._stopHeal}>
                 ${this.hass.localize(
                   "ui.panel.config.zwave_js.heal_network.stop_heal"
                 )}
-              </mwc-button>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              </ha-button>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "failed"
@@ -139,9 +139,9 @@ class DialogZWaveJSHealNetwork extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "finished"
@@ -159,9 +159,9 @@ class DialogZWaveJSHealNetwork extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "cancelled"
@@ -179,9 +179,9 @@ class DialogZWaveJSHealNetwork extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._progress_total && this._status !== "finished"

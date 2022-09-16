@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import { mdiContentCopy, mdiOpenInNew } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement } from "lit";
 import { query, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../../common/util/copy-clipboard";
 import { createCloseHeading } from "../../../../components/ha-dialog";
+import "../../../../components/ha-button";
 import "../../../../components/ha-textfield";
 import type { HaTextField } from "../../../../components/ha-textfield";
 import { showConfirmationDialog } from "../../../../dialogs/generic/show-dialog-box";
@@ -104,15 +104,15 @@ export class DialogManageCloudhook extends LitElement {
           rel="noreferrer"
           slot="secondaryAction"
         >
-          <mwc-button>
+          <ha-button>
             ${this.hass!.localize(
               "ui.panel.config.cloud.dialog_cloudhook.view_documentation"
             )}
-          </mwc-button>
+          </ha-button>
         </a>
-        <mwc-button @click=${this.closeDialog} slot="primaryAction">
+        <ha-button @click=${this.closeDialog} slot="primaryAction">
           ${this.hass!.localize("ui.panel.config.cloud.dialog_cloudhook.close")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

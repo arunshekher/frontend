@@ -12,6 +12,7 @@ import { extractSearchParam } from "../../../common/url/search-params";
 import { HaProgressButton } from "../../../components/buttons/ha-progress-button";
 
 import "../../../components/entity/ha-entity-picker";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-expansion-panel";
 import "../../../components/ha-icon-button";
@@ -121,7 +122,7 @@ class HaPanelDevService extends LitElement {
       <div class="button-row">
         <div class="buttons">
           <div class="switch-mode-container">
-            <mwc-button
+            <ha-button
               @click=${this._toggleYaml}
               .disabled=${!this._uiAvailable}
             >
@@ -132,7 +133,7 @@ class HaPanelDevService extends LitElement {
                 : this.hass.localize(
                     "ui.panel.developer-tools.tabs.services.yaml_mode"
                   )}
-            </mwc-button>
+            </ha-button>
             ${!this._uiAvailable
               ? html`<span class="error"
                   >${this.hass.localize(
@@ -229,10 +230,10 @@ class HaPanelDevService extends LitElement {
                 )}
               </table>
               ${this._yamlMode
-                ? html`<mwc-button @click=${this._fillExampleData}
+                ? html`<ha-button @click=${this._fillExampleData}
                     >${this.hass.localize(
                       "ui.panel.developer-tools.tabs.services.fill_example_data"
-                    )}</mwc-button
+                    )}</ha-button
                   >`
                 : ""}
             </ha-expansion-panel>

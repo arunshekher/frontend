@@ -1,7 +1,7 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import { createCloseHeading } from "../../../../components/ha-dialog";
 import type { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyleDialog } from "../../../../resources/styles";
@@ -79,9 +79,9 @@ export class HuiCreateDialogHeaderFooter
           )}
         </div>
         <div slot="primaryAction">
-          <mwc-button @click=${this._cancel}>
+          <ha-button @click=${this._cancel}>
             ${this.hass!.localize("ui.common.cancel")}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-dialog>
     `;

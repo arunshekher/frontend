@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@polymer/paper-input/paper-input";
 import type { PaperInputElement } from "@polymer/paper-input/paper-input";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
@@ -22,6 +21,7 @@ import { SYMBOL_TO_ISO } from "../data/currency";
 import { onboardCoreConfigStep } from "../data/onboarding";
 import type { PolymerChangedEvent } from "../polymer-types";
 import type { HomeAssistant } from "../types";
+import "../components/ha-button";
 import "../components/ha-radio";
 import "../components/ha-formfield";
 import type { HaRadio } from "../components/ha-radio";
@@ -85,11 +85,11 @@ class OnboardingCoreConfig extends LitElement {
               "ui.panel.page-onboarding.core-config.intro_location_detect"
             )}
           </div>
-          <mwc-button @click=${this._detect}>
+          <ha-button @click=${this._detect}>
             ${this.onboardingLocalize(
               "ui.panel.page-onboarding.core-config.button_detect"
             )}
-          </mwc-button>
+          </ha-button>
         </div>
       </div>
 
@@ -212,11 +212,11 @@ class OnboardingCoreConfig extends LitElement {
         </div>
 
       <div class="footer">
-        <mwc-button @click=${this._save} .disabled=${this._working}>
+        <ha-button @click=${this._save} .disabled=${this._working}>
           ${this.onboardingLocalize(
             "ui.panel.page-onboarding.core-config.finish"
           )}
-        </mwc-button>
+        </ha-button>
       </div>
     `;
   }

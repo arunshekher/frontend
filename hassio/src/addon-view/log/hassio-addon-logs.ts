@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "../../../../src/components/ha-alert";
 import "../../../../src/components/ha-ansi-to-html";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-card";
 import {
   fetchHassioAddonLogs,
@@ -46,9 +46,9 @@ class HassioAddonLogs extends LitElement {
             : ""}
         </div>
         <div class="card-actions">
-          <mwc-button @click=${this._refresh}>
+          <ha-button @click=${this._refresh}>
             ${this.supervisor.localize("common.refresh")}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-card>
     `;

@@ -15,6 +15,7 @@ import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { domainIcon } from "../../../../common/entity/domain_icon";
 import { stripPrefixFromEntityName } from "../../../../common/entity/strip_prefix_from_entity_name";
 import "../../../../components/entity/state-badge";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-icon";
 import {
@@ -118,11 +119,11 @@ export class HaDeviceEntitiesCard extends LitElement {
               `
           : ""}
         <div class="card-actions">
-          <mwc-button @click=${this._addToLovelaceView}>
+          <ha-button @click=${this._addToLovelaceView}>
             ${this.hass.localize(
               "ui.panel.config.devices.entities.add_entities_lovelace"
             )}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-card>
     `;

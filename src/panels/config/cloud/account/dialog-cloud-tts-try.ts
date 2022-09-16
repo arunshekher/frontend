@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiPlayCircleOutline, mdiRobot } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
@@ -10,6 +9,7 @@ import { computeStateDomain } from "../../../../common/entity/compute_state_doma
 import { computeStateName } from "../../../../common/entity/compute_state_name";
 import { supportsFeature } from "../../../../common/entity/supports-feature";
 import { createCloseHeading } from "../../../../components/ha-dialog";
+import "../../../../components/ha-button";
 import "../../../../components/ha-select";
 import "../../../../components/ha-textarea";
 import type { HaTextArea } from "../../../../components/ha-textarea";
@@ -105,7 +105,7 @@ export class DialogTryTts extends LitElement {
               )}
           </ha-select>
         </div>
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           .label=${this.hass.localize(
             "ui.panel.config.cloud.account.tts.dialog.play"
@@ -114,8 +114,8 @@ export class DialogTryTts extends LitElement {
           .disabled=${this._loadingExample}
         >
           <ha-svg-icon slot="icon" .path=${mdiPlayCircleOutline}></ha-svg-icon>
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           slot="secondaryAction"
           .disabled=${target === "browser"}
           .label=${this.hass.localize(
@@ -124,7 +124,7 @@ export class DialogTryTts extends LitElement {
           @click=${this._createAutomation}
         >
           <ha-svg-icon slot="icon" .path=${mdiRobot}></ha-svg-icon>
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

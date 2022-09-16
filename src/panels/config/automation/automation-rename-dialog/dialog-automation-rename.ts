@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
@@ -7,8 +6,9 @@ import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import type { HomeAssistant } from "../../../../types";
 import type { AutomationRenameDialog } from "./show-dialog-automation-rename";
-import "../../../../components/ha-textarea";
 import "../../../../components/ha-alert";
+import "../../../../components/ha-button";
+import "../../../../components/ha-textarea";
 import "../../../../components/ha-textfield";
 
 @customElement("ha-dialog-automation-rename")
@@ -95,16 +95,16 @@ class DialogAutomationRename extends LitElement implements HassDialog {
           @input=${this._valueChanged}
         ></ha-textarea>
 
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass.localize("ui.dialogs.generic.cancel")}
-        </mwc-button>
-        <mwc-button @click=${this._save} slot="primaryAction">
+        </ha-button>
+        <ha-button @click=${this._save} slot="primaryAction">
           ${this.hass.localize(
             this._params.config.alias
               ? "ui.panel.config.automation.editor.rename"
               : "ui.panel.config.automation.editor.save"
           )}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

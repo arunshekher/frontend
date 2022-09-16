@@ -16,6 +16,7 @@ import {
 import { fireEvent, HASSDomEvent } from "../../../../common/dom/fire_event";
 import { stopPropagation } from "../../../../common/dom/stop_propagation";
 import "../../../../components/entity/ha-entity-picker";
+import "../../../../components/ha-button";
 import "../../../../components/ha-select";
 import "../../../../components/ha-textfield";
 import type {
@@ -103,7 +104,7 @@ export class HuiConditionalCardEditor
               ${this._config.card.type !== undefined
                 ? html`
                     <div class="card-options">
-                      <mwc-button
+                      <ha-button
                         @click=${this._toggleMode}
                         .disabled=${!this._guiModeAvailable}
                         class="gui-mode-button"
@@ -113,11 +114,11 @@ export class HuiConditionalCardEditor
                             ? "ui.panel.lovelace.editor.edit_card.show_code_editor"
                             : "ui.panel.lovelace.editor.edit_card.show_visual_editor"
                         )}
-                      </mwc-button>
-                      <mwc-button @click=${this._handleReplaceCard}
+                      </ha-button>
+                      <ha-button @click=${this._handleReplaceCard}
                         >${this.hass!.localize(
                           "ui.panel.lovelace.editor.card.conditional.change_type"
-                        )}</mwc-button
+                        )}</ha-button
                       >
                     </div>
                     <hui-card-element-editor

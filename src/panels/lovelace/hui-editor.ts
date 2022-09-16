@@ -1,5 +1,4 @@
 import { undoDepth } from "@codemirror/history";
-import "@material/mwc-button";
 import { mdiClose } from "@mdi/js";
 import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
@@ -16,6 +15,7 @@ import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { array, assert, object, optional, string, type } from "superstruct";
 import { deepEqual } from "../../common/util/deep-equal";
+import "../../components/ha-button";
 import "../../components/ha-circular-progress";
 import "../../components/ha-code-editor";
 import type { HaCodeEditor } from "../../components/ha-code-editor";
@@ -77,13 +77,13 @@ class LovelaceFullConfigEditor extends LitElement {
                     "ui.panel.lovelace.editor.raw_editor.saved"
                   )}
             </div>
-            <mwc-button
+            <ha-button
               raised
               @click=${this._handleSave}
               .disabled=${!this._changed}
               >${this.hass!.localize(
                 "ui.panel.lovelace.editor.raw_editor.save"
-              )}</mwc-button
+              )}</ha-button
             >
           </app-toolbar>
         </app-header>
@@ -153,7 +153,7 @@ class LovelaceFullConfigEditor extends LitElement {
           color: var(--app-header-edit-text-color, #fff);
         }
 
-        mwc-button[disabled] {
+        ha-button[disabled] {
           background-color: var(--mdc-theme-on-primary);
           border-radius: 4px;
         }

@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { ComboBoxLitRenderer } from "@vaadin/combo-box/lit";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-combo-box";
 import { createCloseHeading } from "../../../components/ha-dialog";
@@ -163,7 +163,7 @@ export class DialogAddApplicationCredential extends LitElement {
               </div>
             `
           : html`
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .disabled=${!this._domain ||
                 !this._clientId ||
@@ -173,7 +173,7 @@ export class DialogAddApplicationCredential extends LitElement {
                 ${this.hass.localize(
                   "ui.panel.config.application_credentials.editor.create"
                 )}
-              </mwc-button>
+              </ha-button>
             `}
       </ha-dialog>
     `;

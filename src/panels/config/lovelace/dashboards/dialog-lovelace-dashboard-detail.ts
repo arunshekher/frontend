@@ -1,10 +1,10 @@
-import "@material/mwc-button/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { slugify } from "../../../../common/string/slugify";
 import { createCloseHeading } from "../../../../components/ha-dialog";
+import "../../../../components/ha-button";
 import "../../../../components/ha-form/ha-form";
 import { SchemaUnion } from "../../../../components/ha-form/types";
 import { CoreFrontendUserData } from "../../../../data/frontend";
@@ -104,7 +104,7 @@ export class DialogLovelaceDashboardDetail extends LitElement {
           ? html`
               ${this._params.dashboard?.id
                 ? html`
-                    <mwc-button
+                    <ha-button
                       slot="secondaryAction"
                       class="warning"
                       @click=${this._deleteDashboard}
@@ -113,10 +113,10 @@ export class DialogLovelaceDashboardDetail extends LitElement {
                       ${this.hass.localize(
                         "ui.panel.config.lovelace.dashboards.detail.delete"
                       )}
-                    </mwc-button>
+                    </ha-button>
                   `
                 : ""}
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 @click=${this._toggleDefault}
                 .disabled=${this._params.urlPath === "lovelace" &&
@@ -129,10 +129,10 @@ export class DialogLovelaceDashboardDetail extends LitElement {
                   : this.hass.localize(
                       "ui.panel.config.lovelace.dashboards.detail.set_default"
                     )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._updateDashboard}
           .disabled=${(this._error && "url_path" in this._error) ||
@@ -149,7 +149,7 @@ export class DialogLovelaceDashboardDetail extends LitElement {
             : this.hass.localize(
                 "ui.panel.config.lovelace.dashboards.detail.create"
               )}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

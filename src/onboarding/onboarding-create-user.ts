@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { genClientId } from "home-assistant-js-websocket";
 import {
   css,
@@ -11,6 +10,7 @@ import {
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
+import "../components/ha-button";
 import "../components/ha-form/ha-form";
 import type { HaForm } from "../components/ha-form/ha-form";
 import { HaFormDataContainer, HaFormSchema } from "../components/ha-form/types";
@@ -66,7 +66,7 @@ class OnboardingCreateUser extends LitElement {
         @value-changed=${this._handleValueChanged}
       ></ha-form>
 
-      <mwc-button
+      <ha-button
         raised
         @click=${this._submitForm}
         .disabled=${this._loading ||
@@ -75,7 +75,7 @@ class OnboardingCreateUser extends LitElement {
         !this._newUser.password}
       >
         ${this.localize("ui.panel.page-onboarding.user.create_account")}
-      </mwc-button>
+      </ha-button>
     `;
   }
 
@@ -157,7 +157,7 @@ class OnboardingCreateUser extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button {
+      ha-button {
         margin: 32px 0 0;
         text-align: center;
         display: block;

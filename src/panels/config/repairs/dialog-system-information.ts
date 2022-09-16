@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
@@ -8,6 +7,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import { subscribePollingCollection } from "../../../common/util/subscribe-polling";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-metric";
@@ -151,27 +151,27 @@ class DialogSystemInformation extends LitElement {
             ? html`${this._resolutionInfo.unhealthy.length
                 ? html`<ha-alert alert-type="error">
                     ${this.hass.localize("ui.dialogs.unhealthy.title")}
-                    <mwc-button
+                    <ha-button
                       slot="action"
                       .label=${this.hass.localize(
                         "ui.panel.config.common.learn_more"
                       )}
                       @click=${this._unhealthyDialog}
                     >
-                    </mwc-button
+                    </ha-button
                   ></ha-alert>`
                 : ""}
               ${this._resolutionInfo.unsupported.length
                 ? html`<ha-alert alert-type="warning">
                     ${this.hass.localize("ui.dialogs.unsupported.title")}
-                    <mwc-button
+                    <ha-button
                       slot="action"
                       .label=${this.hass.localize(
                         "ui.panel.config.common.learn_more"
                       )}
                       @click=${this._unsupportedDialog}
                     >
-                    </mwc-button>
+                    </ha-button>
                   </ha-alert>`
                 : ""} `
             : ""}
@@ -227,11 +227,11 @@ class DialogSystemInformation extends LitElement {
                 </div>
               `}
         </div>
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           .label=${this.hass.localize("ui.panel.config.repairs.copy")}
           @click=${this._copyInfo}
-        ></mwc-button>
+        ></ha-button>
       </ha-dialog>
     `;
   }
@@ -368,11 +368,11 @@ class DialogSystemInformation extends LitElement {
                   ? ""
                   : html`
                       <a class="manage" href=${domainInfo.manage_url}>
-                        <mwc-button>
+                        <ha-button>
                           ${this.hass.localize(
                             "ui.panel.config.info.system_health.manage"
                           )}
-                        </mwc-button>
+                        </ha-button>
                       </a>
                     `}
               </div>

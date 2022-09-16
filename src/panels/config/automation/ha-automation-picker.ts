@@ -24,6 +24,7 @@ import type {
   DataTableColumnContainer,
   RowClickedEvent,
 } from "../../../components/data-table/ha-data-table";
+import "../../../components/ha-button";
 import "../../../components/ha-button-related-filter-menu";
 import "../../../components/ha-chip";
 import "../../../components/ha-fab";

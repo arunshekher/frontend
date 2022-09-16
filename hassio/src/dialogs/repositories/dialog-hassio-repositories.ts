@@ -1,5 +1,4 @@
 import "@polymer/paper-tooltip/paper-tooltip";
-import "@material/mwc-button/mwc-button";
 import { mdiDelete, mdiDeleteOff } from "@mdi/js";
 import "@polymer/paper-input/paper-input";
 import type { PaperInputElement } from "@polymer/paper-input/paper-input";
@@ -13,6 +12,7 @@ import { caseInsensitiveStringCompare } from "../../../../src/common/string/comp
 import "../../../../src/components/ha-alert";
 import "../../../../src/components/ha-circular-progress";
 import { createCloseHeading } from "../../../../src/components/ha-dialog";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-icon-button";
 import {
   HassioAddonInfo,
@@ -153,7 +153,7 @@ class HassioRepositoriesDialog extends LitElement {
               @keydown=${this._handleKeyAdd}
               dialogInitialFocus
             ></paper-input>
-            <mwc-button @click=${this._addRepository}>
+            <ha-button @click=${this._addRepository}>
               ${this._processing
                 ? html`<ha-circular-progress
                     active
@@ -162,12 +162,12 @@ class HassioRepositoriesDialog extends LitElement {
                 : this._dialogParams!.supervisor.localize(
                     "dialog.repositories.add"
                   )}
-            </mwc-button>
+            </ha-button>
           </div>
         </div>
-        <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+        <ha-button slot="primaryAction" @click=${this.closeDialog}>
           ${this._dialogParams?.supervisor.localize("common.close")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }
@@ -191,7 +191,7 @@ class HassioRepositoriesDialog extends LitElement {
           border-radius: 4px;
           margin-top: 4px;
         }
-        mwc-button {
+        ha-button {
           margin-left: 8px;
         }
         ha-circular-progress {

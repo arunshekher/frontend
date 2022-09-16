@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import {
   mdiLoginVariant,
@@ -14,6 +13,7 @@ import { customElement, property } from "lit/decorators";
 import { stopPropagation } from "../../../common/dom/stop_propagation";
 import { supportsFeature } from "../../../common/entity/supports-feature";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
+import "../../../components/ha-button";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-select";
 import "../../../components/ha-slider";
@@ -70,7 +70,7 @@ class MoreInfoMediaPlayer extends LitElement {
         </div>
         ${supportsFeature(stateObj, SUPPORT_BROWSE_MEDIA)
           ? html`
-              <mwc-button
+              <ha-button
                 .label=${this.hass.localize(
                   "ui.card.media_player.browse_media"
                 )}
@@ -81,7 +81,7 @@ class MoreInfoMediaPlayer extends LitElement {
                   .path=${mdiPlayBoxMultiple}
                   slot="icon"
                 ></ha-svg-icon>
-              </mwc-button>
+              </ha-button>
             `
           : ""}
       </div>
@@ -246,7 +246,7 @@ class MoreInfoMediaPlayer extends LitElement {
         font-style: italic;
       }
 
-      mwc-button > ha-svg-icon {
+      ha-button > ha-svg-icon {
         vertical-align: text-bottom;
       }
 

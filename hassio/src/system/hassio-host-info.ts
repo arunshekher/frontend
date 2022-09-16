@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiDotsVertical } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
@@ -7,6 +6,7 @@ import memoizeOne from "memoize-one";
 import { atLeastVersion } from "../../../src/common/config/version";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
+import "../../../src/components/ha-button";
 import "../../../src/components/ha-button-menu";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-icon-button";
@@ -77,11 +77,11 @@ class HassioHostInfo extends LitElement {
                   <span slot="description">
                     ${this.supervisor.host.hostname}
                   </span>
-                  <mwc-button
+                  <ha-button
                     .label=${this.supervisor.localize("system.host.change")}
                     @click=${this._changeHostnameClicked}
                   >
-                  </mwc-button>
+                  </ha-button>
                 </ha-settings-row>`
               : ""}
             ${this.supervisor.host.features.includes("network")
@@ -90,11 +90,11 @@ class HassioHostInfo extends LitElement {
                     ${this.supervisor.localize("system.host.ip_address")}
                   </span>
                   <span slot="description"> ${primaryIpAddress} </span>
-                  <mwc-button
+                  <ha-button
                     .label=${this.supervisor.localize("system.host.change")}
                     @click=${this._changeNetworkClicked}
                   >
-                  </mwc-button>
+                  </ha-button>
                 </ha-settings-row>`
               : ""}
 
@@ -109,10 +109,10 @@ class HassioHostInfo extends LitElement {
               this.supervisor.os.update_available
                 ? html`
                     <a href="/hassio/update-available/os">
-                      <mwc-button
+                      <ha-button
                         .label=${this.supervisor.localize("common.show")}
                       >
-                      </mwc-button>
+                      </ha-button>
                     </a>
                   `
                 : ""}

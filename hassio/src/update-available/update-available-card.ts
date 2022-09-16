@@ -12,6 +12,7 @@ import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../src/common/dom/fire_event";
 import "../../../src/components/buttons/ha-progress-button";
 import "../../../src/components/ha-alert";
+import "../../../src/components/ha-button";
 import "../../../src/components/ha-button-menu";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-checkbox";
@@ -188,12 +189,12 @@ class UpdateAvailableCard extends LitElement {
               <div class="card-actions">
                 ${changelog
                   ? html`<a .href=${changelog} target="_blank" rel="noreferrer">
-                      <mwc-button
+                      <ha-button
                         .label=${this.supervisor.localize(
                           "update_available.open_release_notes"
                         )}
                       >
-                      </mwc-button>
+                      </ha-button>
                     </a>`
                   : ""}
                 <span></span>

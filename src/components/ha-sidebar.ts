@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   mdiBell,
   mdiCalendar,
@@ -52,6 +51,7 @@ import { actionHandler } from "../panels/lovelace/common/directives/action-handl
 import { loadSortable, SortableInstance } from "../resources/sortable.ondemand";
 import { haStyleScrollbar } from "../resources/styles";
 import type { HomeAssistant, PanelInfo, Route } from "../types";
+import "./ha-button";
 import "./ha-icon";
 import "./ha-icon-button";
 import "./ha-menu-button";
@@ -362,9 +362,9 @@ class HaSidebar extends SubscribeMixin(LitElement) {
           `
         : ""}
       ${this.editMode
-        ? html`<mwc-button outlined @click=${this._closeEditMode}>
+        ? html`<ha-button outlined @click=${this._closeEditMode}>
             ${this.hass.localize("ui.sidebar.done")}
-          </mwc-button>`
+          </ha-button>`
         : html`<div class="title">Home Assistant</div>`}
     </div>`;
   }
@@ -896,10 +896,10 @@ class HaSidebar extends SubscribeMixin(LitElement) {
         :host([expanded]) .title {
           display: initial;
         }
-        :host([expanded]) .menu mwc-button {
+        :host([expanded]) .menu ha-button {
           margin: 0 8px;
         }
-        .menu mwc-button {
+        .menu ha-button {
           width: 100%;
         }
         #sortable,

@@ -1,6 +1,7 @@
 import { css, CSSResultGroup, html, LitElement, PropertyValues } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../../common/config/is_component_loaded";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-circular-progress";
 import "../../../../components/ha-settings-row";
@@ -97,11 +98,11 @@ export class CloudWebhooks extends LitElement {
                         `
                       : this._cloudHooks![entry.webhook_id]
                       ? html`
-                          <mwc-button @click=${this._handleManageButton}>
+                          <ha-button @click=${this._handleManageButton}>
                             ${this.hass!.localize(
                               "ui.panel.config.cloud.account.webhooks.manage"
                             )}
-                          </mwc-button>
+                          </ha-button>
                         `
                       : html`<ha-switch @click=${this._enableWebhook}>
                         </ha-switch>`}

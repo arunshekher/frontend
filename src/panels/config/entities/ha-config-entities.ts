@@ -29,6 +29,7 @@ import type {
   RowClickedEvent,
   SelectionChangedEvent,
 } from "../../../components/data-table/ha-data-table";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-check-list-item";
 import "../../../components/ha-icon-button";
@@ -543,27 +544,27 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
                 <div class="header-btns">
                   ${!this.narrow
                     ? html`
-                        <mwc-button @click=${this._enableSelected}
+                        <ha-button @click=${this._enableSelected}
                           >${this.hass.localize(
                             "ui.panel.config.entities.picker.enable_selected.button"
-                          )}</mwc-button
+                          )}</ha-button
                         >
-                        <mwc-button @click=${this._disableSelected}
+                        <ha-button @click=${this._disableSelected}
                           >${this.hass.localize(
                             "ui.panel.config.entities.picker.disable_selected.button"
-                          )}</mwc-button
+                          )}</ha-button
                         >
-                        <mwc-button @click=${this._hideSelected}
+                        <ha-button @click=${this._hideSelected}
                           >${this.hass.localize(
                             "ui.panel.config.entities.picker.hide_selected.button"
-                          )}</mwc-button
+                          )}</ha-button
                         >
-                        <mwc-button
+                        <ha-button
                           @click=${this._removeSelected}
                           class="warning"
                           >${this.hass.localize(
                             "ui.panel.config.entities.picker.remove_selected.button"
-                          )}</mwc-button
+                          )}</ha-button
                         >
                       `
                     : html`
@@ -979,7 +980,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
         .header-btns {
           display: flex;
         }
-        .header-btns > mwc-button,
+        .header-btns > ha-button,
         .header-btns > ha-icon-button {
           margin: 8px;
         }

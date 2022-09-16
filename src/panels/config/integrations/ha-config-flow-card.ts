@@ -9,6 +9,7 @@ import {
   mdiOpenInNew,
 } from "@mdi/js";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import {
   ATTENTION_SOURCES,
   DISCOVERY_SOURCES,
@@ -49,7 +50,7 @@ export class HaConfigFlowCard extends LitElement {
         .domain=${this.flow.handler}
         .label=${this.flow.localized_title}
       >
-        <mwc-button
+        <ha-button
           unelevated
           @click=${this._continueFlow}
           .label=${this.hass.localize(
@@ -57,7 +58,7 @@ export class HaConfigFlowCard extends LitElement {
               attention ? "reconfigure" : "configure"
             }`
           )}
-        ></mwc-button>
+        ></ha-button>
         <ha-button-menu corner="BOTTOM_START">
           <ha-icon-button
             slot="trigger"

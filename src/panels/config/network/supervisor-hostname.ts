@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list";
 import "@material/mwc-list/mwc-list-item";
 import "@material/mwc-tab";
@@ -6,6 +5,7 @@ import "@material/mwc-tab-bar";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-expansion-panel";
@@ -70,12 +70,12 @@ export class HassioHostname extends LitElement {
           </ha-settings-row>
         </div>
         <div class="card-actions">
-          <mwc-button @click=${this._save} .disabled=${this._processing}>
+          <ha-button @click=${this._save} .disabled=${this._processing}>
             ${this._processing
               ? html`<ha-circular-progress active size="small">
                 </ha-circular-progress>`
               : this.hass.localize("ui.common.save")}
-          </mwc-button>
+          </ha-button>
         </div>
       </ha-card>
     `;

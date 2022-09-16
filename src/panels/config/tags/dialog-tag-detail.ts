@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
 import "../../../components/ha-switch";
@@ -134,17 +134,17 @@ class DialogTagDetail
         </div>
         ${this._params.entry
           ? html`
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 class="warning"
                 @click=${this._deleteEntry}
                 .disabled=${this._submitting}
               >
                 ${this.hass!.localize("ui.panel.config.tag.detail.delete")}
-              </mwc-button>
+              </ha-button>
             `
           : html``}
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._updateEntry}
           .disabled=${this._submitting}
@@ -152,9 +152,9 @@ class DialogTagDetail
           ${this._params.entry
             ? this.hass!.localize("ui.panel.config.tag.detail.update")
             : this.hass!.localize("ui.panel.config.tag.detail.create")}
-        </mwc-button>
+        </ha-button>
         ${this._params.openWrite && !this._params.entry
-          ? html` <mwc-button
+          ? html` <ha-button
               slot="primaryAction"
               @click=${this._updateWriteEntry}
               .disabled=${this._submitting}
@@ -162,7 +162,7 @@ class DialogTagDetail
               ${this.hass!.localize(
                 "ui.panel.config.tag.detail.create_and_write"
               )}
-            </mwc-button>`
+            </ha-button>`
           : ""}
       </ha-dialog>
     `;

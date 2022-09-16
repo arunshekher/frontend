@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -8,6 +7,7 @@ import {
   TemplateResult,
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../../components/ha-button";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
 import { HomeAssistant } from "../../../types";
 import { hasConfigOrEntityChanged } from "../common/has-changed";
@@ -49,7 +49,7 @@ class HuiLockEntityRow extends LitElement implements LovelaceRow {
 
     return html`
       <hui-generic-entity-row .hass=${this.hass} .config=${this._config}>
-        <mwc-button
+        <ha-button
           @click=${this._callService}
           .disabled=${UNAVAILABLE_STATES.includes(stateObj.state)}
           class="text-content"
@@ -57,14 +57,14 @@ class HuiLockEntityRow extends LitElement implements LovelaceRow {
           ${stateObj.state === "locked"
             ? this.hass!.localize("ui.card.lock.unlock")
             : this.hass!.localize("ui.card.lock.lock")}
-        </mwc-button>
+        </ha-button>
       </hui-generic-entity-row>
     `;
   }
 
   static get styles(): CSSResultGroup {
     return css`
-      mwc-button {
+      ha-button {
         margin-right: -0.57em;
       }
     `;

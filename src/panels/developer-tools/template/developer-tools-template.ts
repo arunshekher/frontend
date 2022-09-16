@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { debounce } from "../../../common/util/debounce";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-code-editor";
 import {
@@ -137,11 +137,11 @@ class HaPanelDevTemplate extends LitElement {
             @value-changed=${this._templateChanged}
             dir="ltr"
           ></ha-code-editor>
-          <mwc-button @click=${this._restoreDemo}>
+          <ha-button @click=${this._restoreDemo}>
             ${this.hass.localize(
               "ui.panel.developer-tools.tabs.templates.reset"
             )}
-          </mwc-button>
+          </ha-button>
         </div>
 
         <div class="render-pane">

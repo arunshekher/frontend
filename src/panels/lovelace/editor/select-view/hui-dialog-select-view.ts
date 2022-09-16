@@ -6,6 +6,7 @@ import { customElement, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { stopPropagation } from "../../../../common/dom/stop_propagation";
 import { createCloseHeading } from "../../../../components/ha-dialog";
+import "../../../../components/ha-button";
 import "../../../../components/ha-icon";
 import "../../../../components/ha-select";
 import {
@@ -125,16 +126,16 @@ export class HuiDialogSelectView extends LitElement {
               `
             : ""
           : html`<div>No config found.</div>`}
-        <mwc-button
+        <ha-button
           slot="secondaryAction"
           @click=${this.closeDialog}
           dialogInitialFocus
         >
           ${this.hass!.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button slot="primaryAction" @click=${this._selectView}>
+        </ha-button>
+        <ha-button slot="primaryAction" @click=${this._selectView}>
           ${this._params.actionLabel || this.hass!.localize("ui.common.move")}
-        </mwc-button>
+        </ha-button>
       </ha-dialog>
     `;
   }

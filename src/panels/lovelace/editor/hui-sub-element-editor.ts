@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import { mdiArrowLeft } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { fireEvent, HASSDomEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-icon-button";
 import type { HomeAssistant } from "../../../types";
 import type { LovelaceRowConfig } from "../entity-rows/types";
@@ -47,7 +47,7 @@ export class HuiSubElementEditor extends LitElement {
             )}</span
           >
         </div>
-        <mwc-button
+        <ha-button
           slot="secondaryAction"
           .disabled=${!this._guiModeAvailable}
           @click=${this._toggleMode}
@@ -57,7 +57,7 @@ export class HuiSubElementEditor extends LitElement {
               ? "ui.panel.lovelace.editor.edit_card.show_code_editor"
               : "ui.panel.lovelace.editor.edit_card.show_visual_editor"
           )}
-        </mwc-button>
+        </ha-button>
       </div>
       ${this.config.type === "row"
         ? html`

@@ -1,10 +1,10 @@
-import "@material/mwc-button/mwc-button";
 import "app-datepicker";
 import { css, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
 import { haStyleDialog } from "../resources/styles";
 import { datePickerDialogParams } from "./ha-date-input";
+import "./ha-button";
 import "./ha-dialog";
 
 @customElement("ha-dialog-date-picker")
@@ -41,13 +41,13 @@ export class HaDialogDatePicker extends LitElement {
         .locale=${this._params.locale}
         @datepicker-value-updated=${this._valueChanged}
       ></app-datepicker>
-      <mwc-button slot="secondaryAction" @click=${this._setToday}
-        >today</mwc-button
+      <ha-button slot="secondaryAction" @click=${this._setToday}
+        >today</ha-button
       >
-      <mwc-button slot="primaryAction" dialogaction="cancel" class="cancel-btn">
+      <ha-button slot="primaryAction" dialogaction="cancel" class="cancel-btn">
         cancel
-      </mwc-button>
-      <mwc-button slot="primaryAction" @click=${this._setValue}>ok</mwc-button>
+      </ha-button>
+      <ha-button slot="primaryAction" @click=${this._setValue}>ok</ha-button>
     </ha-dialog>`;
   }
 

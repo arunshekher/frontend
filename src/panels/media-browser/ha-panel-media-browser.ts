@@ -1,7 +1,6 @@
 import { mdiArrowLeft } from "@mdi/js";
 import "@polymer/app-layout/app-header/app-header";
 import "@polymer/app-layout/app-toolbar/app-toolbar";
-import "@material/mwc-button";
 import {
   css,
   CSSResultGroup,

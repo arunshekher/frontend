@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { mdiCastConnected, mdiCast } from "@mdi/js";
 import "@polymer/paper-input/paper-input";
 import {
@@ -20,6 +19,7 @@ import {
   loadTokens,
   saveTokens,
 } from "../../../../src/common/auth/token_storage";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-svg-icon";
 import "../../../../src/layouts/hass-loading-screen";
 import { registerServiceWorker } from "../../../../src/util/register-service-worker";
@@ -80,10 +80,10 @@ export class HcConnect extends LitElement {
           </div>
           <div class="card-actions">
             <a href="/">
-              <mwc-button> Retry </mwc-button>
+              <ha-button> Retry </ha-button>
             </a>
             <div class="spacer"></div>
-            <mwc-button @click=${this._handleLogout}>Log out</mwc-button>
+            <ha-button @click=${this._handleLogout}>Log out</ha-button>
           </div>
         </hc-layout>
       `;
@@ -126,16 +126,16 @@ export class HcConnect extends LitElement {
             ${this.error ? html` <p class="error">${this.error}</p> ` : ""}
           </div>
           <div class="card-actions">
-            <mwc-button @click=${this._handleDemo}>
+            <ha-button @click=${this._handleDemo}>
               Show Demo
               <ha-svg-icon
                 .path=${this.castManager.castState === "CONNECTED"
                   ? mdiCastConnected
                   : mdiCast}
               ></ha-svg-icon>
-            </mwc-button>
+            </ha-button>
             <div class="spacer"></div>
-            <mwc-button @click=${this._handleConnect}>Authorize</mwc-button>
+            <ha-button @click=${this._handleConnect}>Authorize</ha-button>
           </div>
         </hc-layout>
       `;
@@ -308,7 +308,7 @@ export class HcConnect extends LitElement {
         color: darkred;
       }
 
-      mwc-button ha-svg-icon {
+      ha-button ha-svg-icon {
         margin-left: 8px;
       }
 

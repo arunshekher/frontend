@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import "@polymer/paper-item/paper-item-body";
 import { css, html, LitElement, PropertyValues } from "lit";
@@ -9,6 +8,7 @@ import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import { debounce } from "../../../../common/util/debounce";
 import "../../../../components/buttons/ha-call-api-button";
 import "../../../../components/ha-alert";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import {
   cloudLogout,
@@ -130,17 +130,17 @@ export class CloudAccount extends SubscribeMixin(LitElement) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <mwc-button>
+                  <ha-button>
                     ${this.hass.localize(
                       "ui.panel.config.cloud.account.manage_account"
                     )}
-                  </mwc-button>
+                  </ha-button>
                 </a>
-                <mwc-button @click=${this._signOut} class="warning">
+                <ha-button @click=${this._signOut} class="warning">
                   ${this.hass.localize(
                     "ui.panel.config.cloud.account.sign_out"
                   )}
-                </mwc-button>
+                </ha-button>
               </div>
             </ha-card>
           </ha-config-section>
@@ -306,7 +306,7 @@ export class CloudAccount extends SubscribeMixin(LitElement) {
           flex-direction: row-reverse;
           justify-content: space-between;
         }
-        mwc-button {
+        ha-button {
           align-self: center;
         }
         .wrap {

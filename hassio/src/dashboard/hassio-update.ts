@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import { mdiHomeAssistant } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import "../../../src/components/buttons/ha-progress-button";
+import "../../../src/components/ha-button";
 import "../../../src/components/ha-card";
 import "../../../src/components/ha-settings-row";
 import "../../../src/components/ha-svg-icon";
@@ -111,8 +111,8 @@ export class HassioUpdate extends LitElement {
         </div>
         <div class="card-actions">
           <a href="/hassio/update-available/${key}">
-            <mwc-button .label=${this.supervisor.localize("common.show")}>
-            </mwc-button>
+            <ha-button .label=${this.supervisor.localize("common.show")}>
+            </ha-button>
           </a>
         </div>
       </ha-card>

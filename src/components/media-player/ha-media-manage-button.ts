@@ -1,8 +1,8 @@
 import { mdiFolderEdit } from "@mdi/js";
-import "@material/mwc-button";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { MediaPlayerItem } from "../../data/media-player";
+import "../ha-button";
 import "../ha-svg-icon";
 import { isLocalMediaSourceContentId } from "../../data/media_source";
 import type { HomeAssistant } from "../../types";
@@ -31,14 +31,14 @@ class MediaManageButton extends LitElement {
       return html``;
     }
     return html`
-      <mwc-button
+      <ha-button
         .label=${this.hass.localize(
           "ui.components.media-browser.file_management.manage"
         )}
         @click=${this._manage}
       >
         <ha-svg-icon .path=${mdiFolderEdit} slot="icon"></ha-svg-icon>
-      </mwc-button>
+      </ha-button>
     `;
   }
 
@@ -50,7 +50,7 @@ class MediaManageButton extends LitElement {
   }
 
   static styles = css`
-    mwc-button {
+    ha-button {
       /* We use icon + text to show disabled state */
       --mdc-button-disabled-ink-color: --mdc-theme-primary;
     }

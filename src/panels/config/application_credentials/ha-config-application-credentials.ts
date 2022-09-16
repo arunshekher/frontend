@@ -10,6 +10,7 @@ import {
   SelectionChangedEvent,
 } from "../../../components/data-table/ha-data-table";
 import "../../../components/data-table/ha-data-table-icon";
+import "../../../components/ha-button";
 import "../../../components/ha-fab";
 import "../../../components/ha-help-tooltip";
 import "../../../components/ha-svg-icon";
@@ -121,12 +122,12 @@ export class HaConfigApplicationCredentials extends LitElement {
                 <div class="header-btns">
                   ${!this.narrow
                     ? html`
-                        <mwc-button
+                        <ha-button
                           @click=${this._removeSelected}
                           class="warning"
                           >${this.hass.localize(
                             "ui.panel.config.application_credentials.picker.remove_selected.button"
-                          )}</mwc-button
+                          )}</ha-button
                         >
                       `
                     : html`
@@ -266,7 +267,7 @@ export class HaConfigApplicationCredentials extends LitElement {
       .header-btns {
         display: flex;
       }
-      .header-btns > mwc-button,
+      .header-btns > ha-button,
       .header-btns > ha-icon-button {
         margin: 8px;
       }

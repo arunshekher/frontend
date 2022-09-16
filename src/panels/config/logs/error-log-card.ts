@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiRefresh } from "@mdi/js";
 import {
@@ -13,6 +12,7 @@ import { customElement, property, state } from "lit/decorators";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import "../../../components/ha-alert";
 import "../../../components/ha-ansi-to-html";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-select";
@@ -63,9 +63,9 @@ class ErrorLogCard extends LitElement {
           : ""}
         ${!this._logHTML
           ? html`
-              <mwc-button raised @click=${this._refreshLogs}>
+              <ha-button raised @click=${this._refreshLogs}>
                 ${this.hass.localize("ui.panel.config.logs.load_logs")}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
       </div>
@@ -230,7 +230,7 @@ class ErrorLogCard extends LitElement {
       color: var(--warning-color);
     }
 
-    mwc-button {
+    ha-button {
       direction: var(--direction);
     }
   `;

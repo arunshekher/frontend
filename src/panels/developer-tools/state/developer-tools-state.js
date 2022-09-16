@@ -1,5 +1,4 @@
 import { addHours } from "date-fns/esm";
-import "@material/mwc-button";
 import {
   mdiClipboardTextMultipleOutline,
   mdiInformationOutline,
@@ -14,6 +13,7 @@ import { computeRTL } from "../../../common/util/compute_rtl";
 import { escapeRegExp } from "../../../common/string/escape_regexp";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import "../../../components/entity/ha-entity-picker";
+import "../../../components/ha-button";
 import "../../../components/ha-code-editor";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-svg-icon";
@@ -209,11 +209,11 @@ class HaPanelDevState extends EventsMixin(LocalizeMixin(PolymerElement)) {
               dir="ltr"
             ></ha-code-editor>
             <div class="button-row">
-              <mwc-button
+              <ha-button
                 on-click="handleSetState"
                 disabled="[[!validJSON]]"
                 raised
-                >[[localize('ui.panel.developer-tools.tabs.states.set_state')]]</mwc-button
+                >[[localize('ui.panel.developer-tools.tabs.states.set_state')]]</ha-button
               >
               <ha-icon-button
                 on-click="entityIdChanged"

@@ -1,8 +1,8 @@
-import "@material/mwc-button/mwc-button";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement } from "lit/decorators";
 import { applyThemesOnElement } from "../../../../src/common/dom/apply_themes_on_element";
 import "../../../../src/components/ha-alert";
+import "../../../../src/components/ha-button";
 import "../../../../src/components/ha-card";
 import "../../../../src/components/ha-logo-svg";
 
@@ -77,13 +77,13 @@ const alerts: {
     title: "Error with action",
     description: "This is a test error alert with action",
     type: "error",
-    actionSlot: html`<mwc-button slot="action" label="restart"></mwc-button>`,
+    actionSlot: html`<ha-button slot="action" label="restart"></ha-button>`,
   },
   {
     title: "Unsaved data",
     description: "You have unsaved data",
     type: "warning",
-    actionSlot: html`<mwc-button slot="action" label="save"></mwc-button>`,
+    actionSlot: html`<ha-button slot="action" label="save"></ha-button>`,
   },
   {
     title: "Slotted icon",
@@ -105,7 +105,7 @@ const alerts: {
     title: "Slotted action",
     description: "Alert with slotted action",
     type: "info",
-    actionSlot: html`<mwc-button slot="action" label="action"></mwc-button>`,
+    actionSlot: html`<ha-button slot="action" label="action"></ha-button>`,
   },
   {
     description: "Dismissable information (RTL)",
@@ -117,7 +117,7 @@ const alerts: {
     title: "Error with action",
     description: "This is a test error alert with action (RTL)",
     type: "error",
-    actionSlot: html`<mwc-button slot="action" label="restart"></mwc-button>`,
+    actionSlot: html`<ha-button slot="action" label="restart"></ha-button>`,
     rtl: true,
   },
   {
@@ -209,7 +209,7 @@ export class DemoHaAlert extends LitElement {
         max-height: 24px;
         width: 24px;
       }
-      mwc-button {
+      ha-button {
         --mdc-theme-primary: var(--primary-text-color);
       }
     `;

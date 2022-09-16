@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiHelpCircle } from "@mdi/js";
 import "@polymer/paper-input/paper-input";
@@ -13,6 +12,7 @@ import {
 import { property, state } from "lit/decorators";
 import { stopPropagation } from "../../../../../common/dom/stop_propagation";
 import "../../../../../components/buttons/ha-call-service-button";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-icon-button";
 import "../../../../../components/ha-select";
@@ -152,11 +152,11 @@ export class ZHAClusterAttributes extends LitElement {
         ></paper-input>
       </div>
       <div class="card-actions">
-        <mwc-button @click=${this._onGetZigbeeAttributeClick}>
+        <ha-button @click=${this._onGetZigbeeAttributeClick}>
           ${this.hass!.localize(
             "ui.panel.config.zha.cluster_attributes.get_zigbee_attribute"
           )}
-        </mwc-button>
+        </ha-button>
         ${this.showHelp
           ? html`
               <div class="help-text2">

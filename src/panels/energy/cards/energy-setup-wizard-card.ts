@@ -1,6 +1,7 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import {
   EnergyInfo,
   EnergyPreferences,
@@ -10,7 +11,6 @@ import {
 import { LovelaceCardConfig } from "../../../data/lovelace";
 import { HomeAssistant } from "../../../types";
 import { LovelaceCard, Lovelace } from "../../lovelace/types";
-import "@material/mwc-button/mwc-button";
 import "../../config/energy/components/ha-energy-grid-settings";
 import "../../config/energy/components/ha-energy-solar-settings";
 import "../../config/energy/components/ha-energy-battery-settings";
@@ -89,17 +89,17 @@ export class EnergySetupWizard extends LitElement implements LovelaceCard {
           ></ha-energy-device-settings>`}
       <div class="buttons">
         ${this._step > 0
-          ? html`<mwc-button outlined @click=${this._back}
-              >${this.hass.localize("ui.panel.energy.setup.back")}</mwc-button
+          ? html`<ha-button outlined @click=${this._back}
+              >${this.hass.localize("ui.panel.energy.setup.back")}</ha-button
             >`
           : html`<div></div>`}
         ${this._step < 4
-          ? html`<mwc-button unelevated @click=${this._next}
-              >${this.hass.localize("ui.panel.energy.setup.next")}</mwc-button
+          ? html`<ha-button unelevated @click=${this._next}
+              >${this.hass.localize("ui.panel.energy.setup.next")}</ha-button
             >`
-          : html`<mwc-button unelevated @click=${this._setupDone}>
+          : html`<ha-button unelevated @click=${this._setupDone}>
               ${this.hass.localize("ui.panel.energy.setup.done")}
-            </mwc-button>`}
+            </ha-button>`}
       </div>
     `;
   }
@@ -151,7 +151,7 @@ export class EnergySetupWizard extends LitElement implements LovelaceCard {
           max-width: 700px;
           margin: 0 auto;
         }
-        mwc-button {
+        ha-button {
           margin-top: 8px;
         }
         .buttons {

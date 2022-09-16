@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -8,6 +7,7 @@ import {
   TemplateResult,
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
+import "../../components/ha-button";
 import "../../components/ha-card";
 import "../../components/ha-circular-progress";
 import "../../components/ha-textfield";
@@ -91,12 +91,12 @@ class HaChangePasswordCard extends LitElement {
               ? html`<div>
                   <ha-circular-progress active></ha-circular-progress>
                 </div>`
-              : html`<mwc-button
+              : html`<ha-button
                   @click=${this._changePassword}
                   .disabled=${!this._passwordConfirm}
                   >${this.hass.localize(
                     "ui.panel.profile.change_password.submit"
-                  )}</mwc-button
+                  )}</ha-button
                 >`}
           </div>
         </ha-card>

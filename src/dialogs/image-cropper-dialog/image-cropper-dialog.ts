@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import Cropper from "cropperjs";
 // @ts-ignore
 import cropperCss from "cropperjs/dist/cropper.css";
@@ -13,6 +12,7 @@ import {
 } from "lit";
 import { customElement, property, state, query } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
+import "../../components/ha-button";
 import "../../components/ha-dialog";
 import { haStyleDialog } from "../../resources/styles";
 import type { HomeAssistant } from "../../types";
@@ -76,12 +76,12 @@ export class HaImagecropperDialog extends LitElement {
       >
         <img />
       </div>
-      <mwc-button slot="secondaryAction" @click=${this.closeDialog}>
+      <ha-button slot="secondaryAction" @click=${this.closeDialog}>
         ${this.hass.localize("ui.common.cancel")}
-      </mwc-button>
-      <mwc-button slot="primaryAction" @click=${this._cropImage}>
+      </ha-button>
+      <ha-button slot="primaryAction" @click=${this._cropImage}>
         ${this.hass.localize("ui.dialogs.image_cropper.crop")}
-      </mwc-button>
+      </ha-button>
     </ha-dialog>`;
   }
 

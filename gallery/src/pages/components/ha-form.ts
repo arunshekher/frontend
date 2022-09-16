@@ -1,5 +1,4 @@
 /* eslint-disable lit/no-template-arrow */
-import "@material/mwc-button";
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { mockAreaRegistry } from "../../../../demo/src/stubs/area_registry";

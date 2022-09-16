@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiDelete } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-icon-button";
 import "../../../../components/ha-icon-picker";
 import "../../../../components/ha-textfield";
@@ -118,10 +118,10 @@ class HaInputSelectForm extends LitElement {
             )}
             @keydown=${this._handleKeyAdd}
           ></ha-textfield>
-          <mwc-button @click=${this._addOption}
+          <ha-button @click=${this._addOption}
             >${this.hass!.localize(
               "ui.dialogs.helper_settings.input_select.add"
-            )}</mwc-button
+            )}</ha-button
           >
         </div>
       </div>
@@ -199,7 +199,7 @@ class HaInputSelectForm extends LitElement {
           margin-top: 4px;
           --mdc-icon-button-size: 24px;
         }
-        mwc-button {
+        ha-button {
           margin-left: 8px;
         }
         ha-textfield {

@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { mdiHelpCircle } from "@mdi/js";
 import {
   css,
@@ -13,6 +12,7 @@ import type { HASSDomEvent } from "../../../../../common/dom/fire_event";
 import { stopPropagation } from "../../../../../common/dom/stop_propagation";
 import "../../../../../components/buttons/ha-call-service-button";
 import { SelectionChangedEvent } from "../../../../../components/data-table/ha-data-table";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-card";
 import "../../../../../components/ha-icon-button";
 import "../../../../../components/ha-service-description";
@@ -140,12 +140,12 @@ export class ZHAGroupBindingControl extends LitElement {
               `
             : ""}
           <div class="card-actions">
-            <mwc-button
+            <ha-button
               @click=${this._onBindGroupClick}
               .disabled=${!this._canBind}
               >${this.hass!.localize(
                 "ui.panel.config.zha.group_binding.bind_button_label"
-              )}</mwc-button
+              )}</ha-button
             >
             ${this._showHelp
               ? html`
@@ -156,12 +156,12 @@ export class ZHAGroupBindingControl extends LitElement {
                   </div>
                 `
               : ""}
-            <mwc-button
+            <ha-button
               @click=${this._onUnbindGroupClick}
               .disabled=${!this._canBind}
               >${this.hass!.localize(
                 "ui.panel.config.zha.group_binding.unbind_button_label"
-              )}</mwc-button
+              )}</ha-button
             >
             ${this._showHelp
               ? html`

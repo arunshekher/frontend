@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@polymer/paper-input/paper-input";
 import {
   css,
@@ -10,6 +9,7 @@ import {
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { computeRTLDirection } from "../../../common/util/compute_rtl";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import { createCloseHeading } from "../../../components/ha-dialog";
 import "../../../components/ha-formfield";
@@ -200,7 +200,7 @@ export class DialogAddUser extends LitElement {
               </div>
             `
           : html`
-              <mwc-button
+              <ha-button
                 slot="primaryAction"
                 .disabled=${!this._name ||
                 !this._username ||
@@ -209,7 +209,7 @@ export class DialogAddUser extends LitElement {
                 @click=${this._createUser}
               >
                 ${this.hass.localize("ui.panel.config.users.add_user.create")}
-              </mwc-button>
+              </ha-button>
             `}
       </ha-dialog>
     `;

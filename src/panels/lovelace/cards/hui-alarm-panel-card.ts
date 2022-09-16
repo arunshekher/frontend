@@ -11,6 +11,7 @@ import { classMap } from "lit/directives/class-map";
 import { applyThemesOnElement } from "../../../common/dom/apply_themes_on_element";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { alarmPanelIcon } from "../../../common/entity/alarm_panel_icon";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-chip";
 import type { HaTextField } from "../../../components/ha-textfield";
@@ -169,13 +170,13 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
             : (["disarm"] as const)
           ).map(
             (stateAction) => html`
-              <mwc-button
+              <ha-button
                 .action=${stateAction}
                 @click=${this._handleActionClick}
                 outlined
               >
                 ${this._actionDisplay(stateAction)}
-              </mwc-button>
+              </ha-button>
             `
           )}
         </div>
@@ -197,9 +198,9 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
               <div id="keypad">
                 ${BUTTONS.map((value) =>
                   value === ""
-                    ? html` <mwc-button disabled></mwc-button> `
+                    ? html` <ha-button disabled></ha-button> `
                     : html`
-                        <mwc-button
+                        <ha-button
                           .value=${value}
                           @click=${this._handlePadClick}
                           outlined
@@ -212,7 +213,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
                                 `ui.card.alarm_control_panel.clear_code`
                               )
                             : value}
-                        </mwc-button>
+                        </ha-button>
                       `
                 )}
               </div>
@@ -351,7 +352,7 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
         direction: ltr;
       }
 
-      #keypad mwc-button {
+      #keypad ha-button {
         padding: 8px;
         width: 30%;
         box-sizing: border-box;
@@ -364,15 +365,15 @@ class HuiAlarmPanelCard extends LitElement implements LovelaceCard {
         justify-content: center;
       }
 
-      .actions mwc-button {
+      .actions ha-button {
         margin: 0 4px 4px;
       }
 
-      mwc-button#disarm {
+      ha-button#disarm {
         color: var(--error-color);
       }
 
-      mwc-button.numberkey {
+      ha-button.numberkey {
         --mdc-typography-button-font-size: var(--keypad-font-size, 0.875rem);
       }
     `;

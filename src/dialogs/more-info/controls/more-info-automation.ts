@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
+import "../../../components/ha-button";
 import "../../../components/ha-relative-time";
 import { triggerAutomationActions } from "../../../data/automation";
 import { UNAVAILABLE_STATES } from "../../../data/entity";
@@ -30,12 +30,12 @@ class MoreInfoAutomation extends LitElement {
       </div>
 
       <div class="actions">
-        <mwc-button
+        <ha-button
           @click=${this._runActions}
           .disabled=${UNAVAILABLE_STATES.includes(this.stateObj!.state)}
         >
           ${this.hass.localize("ui.card.automation.trigger")}
-        </mwc-button>
+        </ha-button>
       </div>
     `;
   }

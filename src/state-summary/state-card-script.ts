@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import { HassEntity } from "home-assistant-js-websocket";
 import { CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import "../components/entity/ha-entity-toggle";
 import "../components/entity/state-info";
+import "../components/ha-button";
 import { UNAVAILABLE_STATES } from "../data/entity";
 import { canRun, ScriptEntity } from "../data/script";
 import { haStyle } from "../resources/styles";
@@ -27,7 +27,7 @@ export class StateCardScript extends LitElement {
           .inDialog=${this.inDialog}
         ></state-info>
         ${stateObj.state === "on"
-          ? html`<mwc-button @click=${this._cancelScript}>
+          ? html`<ha-button @click=${this._cancelScript}>
               ${stateObj.attributes.mode !== "single" &&
               (stateObj.attributes.current || 0) > 0
                 ? this.hass.localize(
@@ -36,16 +36,16 @@ export class StateCardScript extends LitElement {
                     stateObj.attributes.current
                   )
                 : this.hass.localize("ui.card.script.cancel")}
-            </mwc-button>`
+            </ha-button>`
           : ""}
         ${stateObj.state === "off" || stateObj.attributes.max
-          ? html`<mwc-button
+          ? html`<ha-button
               @click=${this._runScript}
               .disabled=${UNAVAILABLE_STATES.includes(stateObj.state) ||
               !canRun(stateObj)}
             >
               ${this.hass!.localize("ui.card.script.run")}
-            </mwc-button>`
+            </ha-button>`
           : ""}
       </div>
     `;

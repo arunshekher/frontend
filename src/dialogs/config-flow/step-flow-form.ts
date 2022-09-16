@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@polymer/paper-tooltip/paper-tooltip";
 import {
   css,
@@ -11,6 +10,7 @@ import {
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import "../../components/ha-alert";
+import "../../components/ha-button";
 import "../../components/ha-circular-progress";
 import { computeInitialHaFormData } from "../../components/ha-form/compute-initial-ha-form-data";
 import "../../components/ha-form/ha-form";
@@ -67,13 +67,13 @@ class StepFlowForm extends LitElement {
             `
           : html`
               <div>
-                <mwc-button @click=${this._submitStep}>
+                <ha-button @click=${this._submitStep}>
                   ${this.hass.localize(
                     `ui.panel.config.integrations.config_flow.${
                       this.step.last_step === false ? "next" : "submit"
                     }`
                   )}
-                </mwc-button>
+                </ha-button>
               </div>
             `}
       </div>

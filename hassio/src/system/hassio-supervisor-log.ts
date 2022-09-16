@@ -1,5 +1,4 @@
 import "../../../src/components/ha-ansi-to-html";
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import "../../../src/components/buttons/ha-progress-button";

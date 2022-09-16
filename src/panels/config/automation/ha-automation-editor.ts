@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import {
   mdiCheck,
@@ -32,6 +31,7 @@ import { fireEvent } from "../../../common/dom/fire_event";
 import { navigate } from "../../../common/navigate";
 import { copyToClipboard } from "../../../common/util/copy-clipboard";
 import { afterNextRender } from "../../../common/util/render-status";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
@@ -135,11 +135,11 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
       >
         ${this._config?.id && !this.narrow
           ? html`
-              <mwc-button @click=${this._showTrace} slot="toolbar-icon">
+              <ha-button @click=${this._showTrace} slot="toolbar-icon">
                 ${this.hass.localize(
                   "ui.panel.config.automation.editor.show_trace"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
         <ha-button-menu corner="BOTTOM_START" slot="toolbar-icon">
@@ -335,11 +335,11 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
                               ${this.hass.localize(
                                 "ui.panel.config.automation.editor.disabled"
                               )}
-                              <mwc-button slot="action" @click=${this._toggle}>
+                              <ha-button slot="action" @click=${this._toggle}>
                                 ${this.hass.localize(
                                   "ui.panel.config.automation.editor.enable"
                                 )}
-                              </mwc-button>
+                              </ha-button>
                             </ha-alert>
                           `
                         : ""}
@@ -350,11 +350,11 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
                       ></ha-yaml-editor>
                       <ha-card outlined>
                         <div class="card-actions">
-                          <mwc-button @click=${this._copyYaml}>
+                          <ha-button @click=${this._copyYaml}>
                             ${this.hass.localize(
                               "ui.panel.config.automation.editor.copy_to_clipboard"
                             )}
-                          </mwc-button>
+                          </ha-button>
                         </div>
                       </ha-card>
                     `

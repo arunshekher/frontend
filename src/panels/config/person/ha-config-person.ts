@@ -4,6 +4,7 @@ import "@polymer/paper-item/paper-item-body";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { property, state } from "lit/decorators";
 import { stringCompare } from "../../../common/string/compare";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-fab";
 import "../../../components/ha-svg-icon";
@@ -106,10 +107,10 @@ class HaConfigPerson extends LitElement {
                     ${hass.localize(
                       "ui.panel.config.person.no_persons_created_yet"
                     )}
-                    <mwc-button @click=${this._createPerson}>
+                    <ha-button @click=${this._createPerson}>
                       ${hass.localize(
                         "ui.panel.config.person.create_person"
-                      )}</mwc-button
+                      )}</ha-button
                     >
                   </div>
                 `

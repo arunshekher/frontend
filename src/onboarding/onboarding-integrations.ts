@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import {
   css,
   CSSResultGroup,
@@ -13,6 +12,7 @@ import { fireEvent } from "../common/dom/fire_event";
 import { stringCompare } from "../common/string/compare";
 import { isComponentLoaded } from "../common/config/is_component_loaded";
 import { LocalizeFunc } from "../common/translations/localize";
+import "../components/ha-button";
 import { ConfigEntry, getConfigEntries } from "../data/config_entries";
 import {
   getConfigFlowInProgressCollection,
@@ -137,11 +137,11 @@ class OnboardingIntegrations extends LitElement {
         </button>
       </div>
       <div class="footer">
-        <mwc-button @click=${this._finish}>
+        <ha-button @click=${this._finish}>
           ${this.onboardingLocalize(
             "ui.panel.page-onboarding.integration.finish"
           )}
-        </mwc-button>
+        </ha-button>
       </div>
     `;
   }

@@ -1,9 +1,9 @@
 import { mdiUpload } from "@mdi/js";
-import "@material/mwc-button";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
 import { MediaPlayerItem } from "../../data/media-player";
+import "../ha-button";
 import "../ha-circular-progress";
 import "../ha-svg-icon";
 import {
@@ -36,7 +36,7 @@ class MediaUploadButton extends LitElement {
       return html``;
     }
     return html`
-      <mwc-button
+      <ha-button
         .label=${this._uploading > 0
           ? this.hass.localize(
               "ui.components.media-browser.file_management.uploading",
@@ -60,7 +60,7 @@ class MediaUploadButton extends LitElement {
               ></ha-circular-progress>
             `
           : html` <ha-svg-icon .path=${mdiUpload} slot="icon"></ha-svg-icon> `}
-      </mwc-button>
+      </ha-button>
     `;
   }
 
@@ -110,7 +110,7 @@ class MediaUploadButton extends LitElement {
   }
 
   static styles = css`
-    mwc-button {
+    ha-button {
       /* We use icon + text to show disabled state */
       --mdc-button-disabled-ink-color: --mdc-theme-primary;
     }

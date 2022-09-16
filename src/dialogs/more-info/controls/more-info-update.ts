@@ -1,6 +1,6 @@
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-faded";
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-linear-progress/mwc-linear-progress";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
@@ -133,14 +133,14 @@ class MoreInfoUpdate extends LitElement {
           : this.stateObj.state === BINARY_STATE_OFF &&
             this.stateObj.attributes.skipped_version
           ? html`
-              <mwc-button @click=${this._handleClearSkipped}>
+              <ha-button @click=${this._handleClearSkipped}>
                 ${this.hass.localize(
                   "ui.dialogs.more_info_control.update.clear_skipped"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : html`
-              <mwc-button
+              <ha-button
                 @click=${this._handleSkip}
                 .disabled=${skippedVersion ||
                 this.stateObj.state === BINARY_STATE_OFF ||
@@ -149,11 +149,11 @@ class MoreInfoUpdate extends LitElement {
                 ${this.hass.localize(
                   "ui.dialogs.more_info_control.update.skip"
                 )}
-              </mwc-button>
+              </ha-button>
             `}
         ${supportsFeature(this.stateObj, UPDATE_SUPPORT_INSTALL)
           ? html`
-              <mwc-button
+              <ha-button
                 @click=${this._handleInstall}
                 .disabled=${(this.stateObj.state === BINARY_STATE_OFF &&
                   !skippedVersion) ||
@@ -162,7 +162,7 @@ class MoreInfoUpdate extends LitElement {
                 ${this.hass.localize(
                   "ui.dialogs.more_info_control.update.install"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
       </div>
@@ -246,7 +246,7 @@ class MoreInfoUpdate extends LitElement {
         justify-content: center;
       }
 
-      .actions mwc-button {
+      .actions ha-button {
         margin: 0 4px 4px;
       }
       a {

@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { html, LitElement, PropertyValues, TemplateResult } from "lit";
 import { ComboBoxLitRenderer } from "@vaadin/combo-box/lit";
@@ -23,6 +22,7 @@ import {
 import { SubscribeMixin } from "../../mixins/subscribe-mixin";
 import { PolymerChangedEvent } from "../../polymer-types";
 import { HomeAssistant } from "../../types";
+import "../ha-button";
 import "../ha-icon-button";
 import "../ha-svg-icon";
 import "./ha-devices-picker";
@@ -254,9 +254,7 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
         ></ha-devices-picker>
         ${areas.length > 0
           ? html`
-              <mwc-button @click=${this._switchPicker}
-                >Choose an area</mwc-button
-              >
+              <ha-button @click=${this._switchPicker}>Choose an area</ha-button>
             `
           : ""}
       `;
@@ -276,9 +274,9 @@ export class HaAreaDevicesPicker extends SubscribeMixin(LitElement) {
         @value-changed=${this._areaPicked}
       >
       </ha-combo-box>
-      <mwc-button @click=${this._switchPicker}>
+      <ha-button @click=${this._switchPicker}>
         Choose individual devices
-      </mwc-button>
+      </ha-button>
     `;
   }
 

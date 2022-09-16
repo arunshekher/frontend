@@ -22,6 +22,7 @@ import {
 import { stringCompare } from "../../../../common/string/compare";
 import { computeRTLDirection } from "../../../../common/util/compute_rtl";
 import "../../../../components/entity/state-info";
+import "../../../../components/ha-button";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-card";
 import "../../../../components/ha-formfield";
@@ -252,12 +253,10 @@ class CloudGoogleAssistant extends SubscribeMixin(LitElement) {
         ${
           emptyFilter
             ? html`
-                <mwc-button
-                  slot="toolbar-icon"
-                  @click=${this._openDomainToggler}
+                <ha-button slot="toolbar-icon" @click=${this._openDomainToggler}
                   >${this.hass!.localize(
                     "ui.panel.config.cloud.google.manage_defaults"
-                  )}</mwc-button
+                  )}</ha-button
                 >
               `
             : ""

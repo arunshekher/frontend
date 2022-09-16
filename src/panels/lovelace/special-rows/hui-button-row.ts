@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, state } from "lit/decorators";
 import { DOMAINS_TOGGLE } from "../../../common/const";
@@ -10,6 +9,7 @@ import { actionHandler } from "../common/directives/action-handler-directive";
 import { handleAction } from "../common/handle-action";
 import { hasAction } from "../common/has-action";
 import { ButtonRowConfig, LovelaceRow } from "../entity-rows/types";
+import "../../../components/ha-button";
 import "../../../components/ha-state-icon";
 
 @customElement("hui-button-row")
@@ -57,7 +57,7 @@ export class HuiButtonRow extends LitElement implements LovelaceRow {
       </ha-state-icon>
       <div class="flex">
         <div .title=${name}>${name}</div>
-        <mwc-button
+        <ha-button
           @action=${this._handleAction}
           .actionHandler=${actionHandler({
             hasHold: hasAction(this._config!.hold_action),
@@ -65,7 +65,7 @@ export class HuiButtonRow extends LitElement implements LovelaceRow {
           })}
           >${this._config.action_name
             ? this._config.action_name
-            : this.hass!.localize("ui.card.service.run")}</mwc-button
+            : this.hass!.localize("ui.card.service.run")}</ha-button
         >
       </div>
     `;
@@ -94,7 +94,7 @@ export class HuiButtonRow extends LitElement implements LovelaceRow {
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      mwc-button {
+      ha-button {
         margin-right: -0.57em;
       }
     `;

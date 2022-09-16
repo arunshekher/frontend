@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { mdiHelpCircle } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-icon-button";
 import { Action, ScriptConfig } from "../../../data/script";
@@ -38,11 +38,11 @@ export class HaManualScriptEditor extends LitElement {
               ${this.hass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.description"
               )}
-              <mwc-button slot="action" @click=${this._exitReOrderMode}>
+              <ha-button slot="action" @click=${this._exitReOrderMode}>
                 ${this.hass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.exit"
                 )}
-              </mwc-button>
+              </ha-button>
             </ha-alert>
           `
         : ""}

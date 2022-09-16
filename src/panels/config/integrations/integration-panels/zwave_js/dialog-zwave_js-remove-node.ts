@@ -1,8 +1,8 @@
-import "@material/mwc-button/mwc-button";
 import { mdiCheckCircle, mdiCloseCircle } from "@mdi/js";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../../common/dom/fire_event";
+import "../../../../../components/ha-button";
 import "../../../../../components/ha-circular-progress";
 import { createCloseHeading } from "../../../../../components/ha-dialog";
 import { haStyleDialog } from "../../../../../resources/styles";
@@ -61,11 +61,11 @@ class DialogZWaveJSRemoveNode extends LitElement {
                   "ui.panel.config.zwave_js.remove_node.introduction"
                 )}
               </p>
-              <mwc-button slot="primaryAction" @click=${this._startExclusion}>
+              <ha-button slot="primaryAction" @click=${this._startExclusion}>
                 ${this.hass.localize(
                   "ui.panel.config.zwave_js.remove_node.start_exclusion"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "started"
@@ -87,11 +87,11 @@ class DialogZWaveJSRemoveNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize(
                   "ui.panel.config.zwave_js.remove_node.cancel_exclusion"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "failed"
@@ -109,9 +109,9 @@ class DialogZWaveJSRemoveNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
         ${this._status === "finished"
@@ -131,9 +131,9 @@ class DialogZWaveJSRemoveNode extends LitElement {
                   </p>
                 </div>
               </div>
-              <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+              <ha-button slot="primaryAction" @click=${this.closeDialog}>
                 ${this.hass.localize("ui.common.close")}
-              </mwc-button>
+              </ha-button>
             `
           : ``}
       </ha-dialog>

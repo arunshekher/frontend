@@ -21,6 +21,7 @@ import { caseInsensitiveStringCompare } from "../../../common/string/compare";
 import type { LocalizeFunc } from "../../../common/translations/localize";
 import { extractSearchParam } from "../../../common/url/search-params";
 import { nextRender } from "../../../common/util/render-status";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-check-list-item";
 import "../../../components/ha-checkbox";
@@ -447,12 +448,12 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
                           "ui.panel.config.integrations.disable.disabled_integrations",
                           { number: disabledCount }
                         )}
-                        <mwc-button
+                        <ha-button
                           @click=${this._toggleShowDisabled}
                           .label=${this.hass.localize(
                             "ui.panel.config.integrations.disable.show"
                           )}
-                        ></mwc-button>
+                        ></ha-button>
                       </div>`
                     : ""}
                   ${filterMenu}
@@ -532,13 +533,13 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
                       "ui.panel.config.integrations.none_found_detail"
                     )}
                   </p>
-                  <mwc-button
+                  <ha-button
                     @click=${this._createFlow}
                     unelevated
                     .label=${this.hass.localize(
                       "ui.panel.config.integrations.add_integration"
                     )}
-                  ></mwc-button>
+                  ></ha-button>
                 </div>
               `
             : // If we have a filter, never show a card
@@ -558,13 +559,13 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
                       "ui.panel.config.integrations.no_integrations"
                     )}
                   </p>
-                  <mwc-button
+                  <ha-button
                     @click=${this._createFlow}
                     unelevated
                     .label=${this.hass.localize(
                       "ui.panel.config.integrations.add_integration"
                     )}
-                  ></mwc-button>
+                  ></ha-button>
                 </div>
               `
             : ""}
@@ -835,7 +836,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
           width: max-content;
           cursor: initial;
         }
-        .active-filters mwc-button {
+        .active-filters ha-button {
           margin-left: 8px;
         }
         .active-filters::before {

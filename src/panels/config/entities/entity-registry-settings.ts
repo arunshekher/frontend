@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-formfield/mwc-formfield";
 import "@material/mwc-list/mwc-list-item";
 import { HassEntity, UnsubscribeFunc } from "home-assistant-js-websocket";
@@ -22,6 +21,7 @@ import { stringCompare } from "../../../common/string/compare";
 import { LocalizeFunc } from "../../../common/translations/localize";
 import "../../../components/ha-alert";
 import "../../../components/ha-area-picker";
+import "../../../components/ha-button";
 import "../../../components/ha-expansion-panel";
 import "../../../components/ha-icon-picker";
 import "../../../components/ha-radio";
@@ -293,11 +293,11 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
               ${this._device?.disabled_by
                 ? html`<br />${this.hass!.localize(
                       "ui.dialogs.entity_registry.editor.device_disabled"
-                    )}<br /><mwc-button @click=${this._openDeviceSettings}>
+                    )}<br /><ha-button @click=${this._openDeviceSettings}>
                       ${this.hass!.localize(
                         "ui.dialogs.entity_registry.editor.open_device_settings"
                       )}
-                    </mwc-button>`
+                    </ha-button>`
                 : ""}
             </div>
           `
@@ -544,7 +544,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
         ${this._helperConfigEntry
           ? html`
               <div class="row">
-                <mwc-button
+                <ha-button
                   @click=${this._showOptionsFlow}
                   .disabled=${this._submitting}
                 >
@@ -556,7 +556,7 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
                       this._helperConfigEntry.domain
                     )
                   )}
-                </mwc-button>
+                </ha-button>
               </div>
             `
           : ""}
@@ -729,20 +729,20 @@ export class EntityRegistrySettings extends SubscribeMixin(LitElement) {
         </ha-expansion-panel>
       </div>
       <div class="buttons">
-        <mwc-button
+        <ha-button
           class="warning"
           @click=${this._confirmDeleteEntry}
           .disabled=${this._submitting ||
           (!this._helperConfigEntry && !stateObj?.attributes.restored)}
         >
           ${this.hass.localize("ui.dialogs.entity_registry.editor.delete")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           @click=${this._updateEntry}
           .disabled=${invalidDomainUpdate || this._submitting}
         >
           ${this.hass.localize("ui.dialogs.entity_registry.editor.update")}
-        </mwc-button>
+        </ha-button>
       </div>
     `;
   }

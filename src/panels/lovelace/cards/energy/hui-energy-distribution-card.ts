@@ -14,8 +14,8 @@ import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { css, html, LitElement, svg } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
-import "@material/mwc-button";
 import { formatNumber } from "../../../../common/number/format_number";
+import "../../../../components/ha-button";
 import "../../../../components/ha-card";
 import "../../../../components/ha-svg-icon";
 import {
@@ -677,11 +677,11 @@ class HuiEnergyDistrubutionCard
           ? html`
               <div class="card-actions">
                 <a href="/energy"
-                  ><mwc-button>
+                  ><ha-button>
                     ${this.hass.localize(
                       "ui.panel.lovelace.cards.energy.energy_distribution.go_to_energy_dashboard"
                     )}
-                  </mwc-button></a
+                  </ha-button></a
                 >
               </div>
             `

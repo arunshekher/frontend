@@ -1,10 +1,10 @@
-import "@material/mwc-button";
 import "@polymer/paper-tabs/paper-tab";
 import "@polymer/paper-tabs/paper-tabs";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent, HASSDomEvent } from "../../../../common/dom/fire_event";
 import { navigate } from "../../../../common/navigate";
+import "../../../../components/ha-button";
 import "../../../../components/ha-circular-progress";
 import "../../../../components/ha-dialog";
 import "../../../../components/ha-alert";
@@ -203,7 +203,7 @@ export class HuiDialogEditView extends LitElement {
         ${content}
         ${this._params.viewIndex !== undefined
           ? html`
-              <mwc-button
+              <ha-button
                 class="warning"
                 slot="secondaryAction"
                 @click=${this._deleteConfirm}
@@ -211,13 +211,13 @@ export class HuiDialogEditView extends LitElement {
                 ${this.hass!.localize(
                   "ui.panel.lovelace.editor.edit_view.delete"
                 )}
-              </mwc-button>
+              </ha-button>
             `
           : ""}
-        <mwc-button @click=${this.closeDialog} slot="primaryAction"
-          >${this.hass!.localize("ui.common.cancel")}</mwc-button
+        <ha-button @click=${this.closeDialog} slot="primaryAction"
+          >${this.hass!.localize("ui.common.cancel")}</ha-button
         >
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           ?disabled=${!this._config || this._saving || !this._dirty}
           @click=${this._save}
@@ -229,7 +229,7 @@ export class HuiDialogEditView extends LitElement {
                 title="Saving"
               ></ha-circular-progress>`
             : ""}
-          ${this.hass!.localize("ui.common.save")}</mwc-button
+          ${this.hass!.localize("ui.common.save")}</ha-button
         >
       </ha-dialog>
     `;
@@ -412,7 +412,7 @@ export class HuiDialogEditView extends LitElement {
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           padding: 0 20px;
         }
-        mwc-button.warning {
+        ha-button.warning {
           margin-right: auto;
         }
         ha-circular-progress {

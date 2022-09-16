@@ -1,8 +1,8 @@
-import "@material/mwc-button";
 import type { HassEntity } from "home-assistant-js-websocket";
 import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
 import "../../../components/ha-attributes";
+import "../../../components/ha-button";
 import "../../../components/ha-textfield";
 import type { HaTextField } from "../../../components/ha-textfield";
 import type { HomeAssistant } from "../../../types";
@@ -28,13 +28,13 @@ class MoreInfoLock extends LitElement {
               type="password"
             ></ha-textfield>
             ${this.stateObj.state === "locked"
-              ? html`<mwc-button
+              ? html`<ha-button
                   @click=${this._callService}
                   data-service="unlock"
-                  >${this.hass.localize("ui.card.lock.unlock")}</mwc-button
+                  >${this.hass.localize("ui.card.lock.unlock")}</ha-button
                 >`
-              : html`<mwc-button @click=${this._callService} data-service="lock"
-                  >${this.hass.localize("ui.card.lock.lock")}</mwc-button
+              : html`<ha-button @click=${this._callService} data-service="lock"
+                  >${this.hass.localize("ui.card.lock.lock")}</ha-button
                 >`}
           `
         : ""}

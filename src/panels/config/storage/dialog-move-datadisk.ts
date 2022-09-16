@@ -4,6 +4,7 @@ import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../common/dom/fire_event";
 import { stopPropagation } from "../../../common/dom/stop_propagation";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-markdown";
 import "../../../components/ha-select";
@@ -133,21 +134,21 @@ class MoveDatadiskDialog extends LitElement {
                     "ui.panel.config.storage.datadisk.no_devices"
                   )}
 
-              <mwc-button
+              <ha-button
                 slot="secondaryAction"
                 @click=${this.closeDialog}
                 dialogInitialFocus
               >
                 ${this.hass.localize("ui.panel.config.storage.datadisk.cancel")}
-              </mwc-button>
+              </ha-button>
 
-              <mwc-button
+              <ha-button
                 .disabled=${!this._selectedDevice}
                 slot="primaryAction"
                 @click=${this._moveDatadisk}
               >
                 ${this.hass.localize("ui.panel.config.storage.datadisk.move")}
-              </mwc-button>`}
+              </ha-button>`}
       </ha-dialog>
     `;
   }

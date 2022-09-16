@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@polymer/paper-tooltip/paper-tooltip";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, query } from "lit/decorators";
@@ -6,6 +5,7 @@ import { fireEvent } from "../common/dom/fire_event";
 import { LocalizeFunc } from "../common/translations/localize";
 import { computeRTLDirection } from "../common/util/compute_rtl";
 import "../components/data-table/ha-data-table";
+import "../components/ha-button";
 import type {
   DataTableColumnContainer,
   DataTableRowData,
@@ -178,9 +178,9 @@ export class HaTabsSubpageDataTable extends LitElement {
             ${filterInfo
               ? html`<div class="active-filters">
                   ${filterInfo}
-                  <mwc-button @click=${this._clearFilter}>
+                  <ha-button @click=${this._clearFilter}>
                     ${this.hass.localize("ui.components.data-table.clear")}
-                  </mwc-button>
+                  </ha-button>
                 </div>`
               : ""}
             <slot name="filter-menu"></slot>
@@ -340,7 +340,7 @@ export class HaTabsSubpageDataTable extends LitElement {
       .active-filters ha-svg-icon {
         color: var(--primary-color);
       }
-      .active-filters mwc-button {
+      .active-filters ha-button {
         margin-left: 8px;
       }
       .active-filters::before {

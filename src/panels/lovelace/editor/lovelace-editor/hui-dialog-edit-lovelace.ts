@@ -1,7 +1,7 @@
-import "@material/mwc-button";
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../../../common/dom/fire_event";
+import "../../../../components/ha-button";
 import "../../../../components/ha-circular-progress";
 import type { LovelaceConfig } from "../../../../data/lovelace";
 import { haStyleDialog } from "../../../../resources/styles";
@@ -53,10 +53,10 @@ export class HuiDialogEditLovelace extends LitElement {
             dialogInitialFocus
           ></hui-lovelace-editor>
         </div>
-        <mwc-button @click=${this.closeDialog} slot="secondaryAction">
+        <ha-button @click=${this.closeDialog} slot="secondaryAction">
           ${this.hass!.localize("ui.common.cancel")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           .disabled=${!this._config || this._saving}
           @click=${this._save}
           slot="primaryAction"
@@ -68,7 +68,7 @@ export class HuiDialogEditLovelace extends LitElement {
                 title="Saving"
               ></ha-circular-progress>`
             : ""}
-          ${this.hass!.localize("ui.common.save")}</mwc-button
+          ${this.hass!.localize("ui.common.save")}</ha-button
         >
       </ha-dialog>
     `;

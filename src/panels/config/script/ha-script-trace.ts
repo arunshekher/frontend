@@ -13,6 +13,7 @@ import { classMap } from "lit/directives/class-map";
 import { repeat } from "lit/directives/repeat";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { formatDateTimeWithSeconds } from "../../../common/datetime/format_date_time";
+import "../../../components/ha-button";
 import "../../../components/ha-icon-button";
 import "../../../components/trace/ha-trace-blueprint-config";
 import "../../../components/trace/ha-trace-config";
@@ -102,11 +103,11 @@ export class HaScriptTrace extends LitElement {
                 href="/config/script/edit/${this.scriptEntityId}"
                 slot="toolbar-icon"
               >
-                <mwc-button>
+                <ha-button>
                   ${this.hass.localize(
                     "ui.panel.config.script.trace.edit_script"
                   )}
-                </mwc-button>
+                </ha-button>
               </a>
             `
           : ""}

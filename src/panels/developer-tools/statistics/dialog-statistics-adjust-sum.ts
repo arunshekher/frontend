@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import "@material/mwc-list/mwc-list-item";
 import { mdiChevronRight } from "@mdi/js";
 import formatISO9075 from "date-fns/formatISO9075";
@@ -14,6 +13,7 @@ import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { formatDateTime } from "../../../common/datetime/format_date_time";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-dialog";
 import "../../../components/ha-form/ha-form";
@@ -178,11 +178,11 @@ export class DialogStatisticsFixUnsupportedUnitMetadata extends LitElement {
         @value-changed=${this._dateTimeSelectorChanged}
       ></ha-selector-datetime>
       <div class="stat-list">${stats}</div>
-      <mwc-button
+      <ha-button
         slot="primaryAction"
         dialogAction="cancel"
         .label=${this.hass.localize("ui.common.close")}
-      ></mwc-button>
+      ></ha-button>
     `;
   }
 
@@ -230,22 +230,22 @@ export class DialogStatisticsFixUnsupportedUnitMetadata extends LitElement {
         }}
       ></ha-selector-number>
 
-      <mwc-button
+      <ha-button
         slot="primaryAction"
         label="Adjust"
         .disabled=${this._busy}
         @click=${() => {
           this._fixIssue();
         }}
-      ></mwc-button>
-      <mwc-button
+      ></ha-button>
+      <ha-button
         slot="secondaryAction"
         .label=${this.hass.localize("ui.common.back")}
         .disabled=${this._busy}
         @click=${() => {
           this._chosenStat = undefined;
         }}
-      ></mwc-button>
+      ></ha-button>
     `;
   }
 

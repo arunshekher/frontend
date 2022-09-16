@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@polymer/iron-flex-layout/iron-flex-layout-classes";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import { load } from "js-yaml";
+import "../../../components/ha-button";
 import "../../../components/ha-code-editor";
 import "../../../components/ha-textfield";
 import { showAlertDialog } from "../../../dialogs/generic/show-dialog-box";
@@ -42,7 +42,7 @@ class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
           max-width: 400px;
         }
 
-        mwc-button {
+        ha-button {
           margin-top: 8px;
         }
 
@@ -102,9 +102,9 @@ class HaPanelDevEvent extends EventsMixin(LocalizeMixin(PolymerElement)) {
               dir="ltr"
             ></ha-code-editor>
           </div>
-          <mwc-button on-click="fireEvent" raised disabled="[[!validJSON]]"
+          <ha-button on-click="fireEvent" raised disabled="[[!validJSON]]"
             >[[localize( 'ui.panel.developer-tools.tabs.events.fire_event'
-            )]]</mwc-button
+            )]]</ha-button
           >
           <event-subscribe-card hass="[[hass]]"></event-subscribe-card>
         </div>

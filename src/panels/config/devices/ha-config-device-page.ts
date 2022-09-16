@@ -21,6 +21,7 @@ import { slugify } from "../../../common/string/slugify";
 import { groupBy } from "../../../common/util/group-by";
 import "../../../components/entity/ha-battery-icon";
 import "../../../components/ha-alert";
+import "../../../components/ha-button";
 import "../../../components/ha-button-menu";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-icon-next";
@@ -334,9 +335,9 @@ export class HaConfigDevicePage extends LitElement {
           ${device.disabled_by === "user"
             ? html`
                 <div class="card-actions" slot="actions">
-                  <mwc-button unelevated @click=${this._enableDevice}>
+                  <ha-button unelevated @click=${this._enableDevice}>
                     ${this.hass.localize("ui.common.enable")}
-                  </mwc-button>
+                  </ha-button>
                 </div>
               `
             : ""}
@@ -709,7 +710,7 @@ export class HaConfigDevicePage extends LitElement {
                               )}
                               target=${ifDefined(firstDeviceAction!.target)}
                             >
-                              <mwc-button
+                              <ha-button
                                 class=${ifDefined(firstDeviceAction!.classes)}
                                 .action=${firstDeviceAction!.action}
                                 @click=${this._deviceActionClicked}
@@ -735,7 +736,7 @@ export class HaConfigDevicePage extends LitElement {
                                       ></ha-svg-icon>
                                     `
                                   : ""}
-                              </mwc-button>
+                              </ha-button>
                             </a>
                           </div>
 

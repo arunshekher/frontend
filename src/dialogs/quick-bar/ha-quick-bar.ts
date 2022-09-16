@@ -28,6 +28,7 @@ import {
   ScorableTextItem,
 } from "../../common/string/filter/sequence-matching";
 import { debounce } from "../../common/util/debounce";
+import "../../components/ha-button";
 import "../../components/ha-chip";
 import "../../components/ha-circular-progress";
 import "../../components/ha-header-bar";
@@ -196,10 +197,10 @@ export class QuickBar extends LitElement {
                     ></ha-icon-button>`}
                     ${this._narrow
                       ? html`
-                          <mwc-button
+                          <ha-button
                             .label=${this.hass!.localize("ui.common.close")}
                             @click=${this.closeDialog}
-                          ></mwc-button>
+                          ></ha-button>
                         `
                       : ""}
                   </div>

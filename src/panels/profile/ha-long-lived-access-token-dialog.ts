@@ -1,4 +1,3 @@
-import "@material/mwc-button";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { fireEvent } from "../../common/dom/fire_event";
@@ -6,6 +5,7 @@ import { createCloseHeading } from "../../components/ha-dialog";
 import { haStyleDialog } from "../../resources/styles";
 import type { HomeAssistant } from "../../types";
 import { LongLivedAccessTokenDialogParams } from "./show-long-lived-access-token-dialog";
+import "../../components/ha-button";
 import "../../components/ha-textfield";
 
 const QR_LOGO_URL = "/static/icons/favicon-192x192.png";
@@ -54,9 +54,9 @@ export class HaLongLivedAccessTokenDialog extends LitElement {
             ${this._qrCode
               ? this._qrCode
               : html`
-                  <mwc-button @click=${this._generateQR}>
+                  <ha-button @click=${this._generateQR}>
                     Generate QR code
-                  </mwc-button>
+                  </ha-button>
                 `}
           </div>
         </div>

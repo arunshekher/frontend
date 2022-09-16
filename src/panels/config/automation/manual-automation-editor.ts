@@ -1,9 +1,9 @@
-import "@material/mwc-button/mwc-button";
 import { mdiHelpCircle } from "@mdi/js";
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../../../common/dom/fire_event";
+import "../../../components/ha-button";
 import "../../../components/ha-card";
 import "../../../components/ha-icon-button";
 import "../../../components/ha-alert";
@@ -43,11 +43,11 @@ export class HaManualAutomationEditor extends LitElement {
               ${this.hass.localize(
                 "ui.panel.config.automation.editor.disabled"
               )}
-              <mwc-button slot="action" @click=${this._enable}>
+              <ha-button slot="action" @click=${this._enable}>
                 ${this.hass.localize(
                   "ui.panel.config.automation.editor.enable"
                 )}
-              </mwc-button>
+              </ha-button>
             </ha-alert>
           `
         : ""}
@@ -62,11 +62,11 @@ export class HaManualAutomationEditor extends LitElement {
               ${this.hass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.description"
               )}
-              <mwc-button slot="action" @click=${this._exitReOrderMode}>
+              <ha-button slot="action" @click=${this._exitReOrderMode}>
                 ${this.hass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.exit"
                 )}
-              </mwc-button>
+              </ha-button>
             </ha-alert>
           `
         : ""}

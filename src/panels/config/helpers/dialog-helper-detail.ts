@@ -1,4 +1,3 @@
-import "@material/mwc-button/mwc-button";
 import { RequestSelectedDetail } from "@material/mwc-list/mwc-list-item-base";
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/paper-tooltip/paper-tooltip";
@@ -8,6 +7,7 @@ import { classMap } from "lit/directives/class-map";
 import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { dynamicElement } from "../../../common/dom/dynamic-element-directive";
 import { shouldHandleRequestSelectedEvent } from "../../../common/mwc/handle-request-selected-event";
+import "../../../components/ha-button";
 import "../../../components/ha-circular-progress";
 import "../../../components/ha-dialog";
 import { getConfigFlowHandlers } from "../../../data/config_flow";
@@ -107,20 +107,20 @@ export class DialogHelperDetail extends LitElement {
             new: true,
           })}
         </div>
-        <mwc-button
+        <ha-button
           slot="primaryAction"
           @click=${this._createItem}
           .disabled=${this._submitting}
         >
           ${this.hass!.localize("ui.panel.config.helpers.dialog.create")}
-        </mwc-button>
-        <mwc-button
+        </ha-button>
+        <ha-button
           slot="secondaryAction"
           @click=${this._goBack}
           .disabled=${this._submitting}
         >
           ${this.hass!.localize("ui.common.back")}
-        </mwc-button>
+        </ha-button>
       `;
     } else if (this._helperFlows === undefined) {
       content = html`<ha-circular-progress active></ha-circular-progress>`;
@@ -190,9 +190,9 @@ export class DialogHelperDetail extends LitElement {
             `;
           })}
         </mwc-list>
-        <mwc-button slot="primaryAction" @click=${this.closeDialog}>
+        <ha-button slot="primaryAction" @click=${this.closeDialog}>
           ${this.hass!.localize("ui.common.cancel")}
-        </mwc-button>
+        </ha-button>
       `;
     }
 

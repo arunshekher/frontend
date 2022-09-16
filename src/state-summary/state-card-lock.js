@@ -1,9 +1,9 @@
-import "@material/mwc-button";
 import "@polymer/iron-flex-layout/iron-flex-layout-classes";
 import { html } from "@polymer/polymer/lib/utils/html-tag";
 /* eslint-plugin-disable lit */
 import { PolymerElement } from "@polymer/polymer/polymer-element";
 import "../components/entity/state-info";
+import "../components/ha-button";
 import LocalizeMixin from "../mixins/localize-mixin";
 
 /*
@@ -14,7 +14,7 @@ class StateCardLock extends LocalizeMixin(PolymerElement) {
     return html`
       <style include="iron-flex iron-flex-alignment"></style>
       <style>
-        mwc-button {
+        ha-button {
           top: 3px;
           height: 37px;
           margin-right: -0.57em;
@@ -23,17 +23,17 @@ class StateCardLock extends LocalizeMixin(PolymerElement) {
 
       <div class="horizontal justified layout">
         ${this.stateInfoTemplate}
-        <mwc-button
+        <ha-button
           on-click="_callService"
           data-service="unlock"
           hidden$="[[!isLocked]]"
-          >[[localize('ui.card.lock.unlock')]]</mwc-button
+          >[[localize('ui.card.lock.unlock')]]</ha-button
         >
-        <mwc-button
+        <ha-button
           on-click="_callService"
           data-service="lock"
           hidden$="[[isLocked]]"
-          >[[localize('ui.card.lock.lock')]]</mwc-button
+          >[[localize('ui.card.lock.lock')]]</ha-button
         >
       </div>
     `;
