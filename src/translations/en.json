@@ -517,6 +517,7 @@
           "min": "min",
           "max": "max",
           "mean": "mean",
+          "state": "state",
           "sum": "sum",
           "sum_rel": "change"
         }
@@ -3934,6 +3935,7 @@
                 "mean": "Mean",
                 "min": "Min",
                 "max": "Max",
+                "state": "State",
                 "sum": "Sum (absolute)",
                 "sum_rel": "Change"
               },
